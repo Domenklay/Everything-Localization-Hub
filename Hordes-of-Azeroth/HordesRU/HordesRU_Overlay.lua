@@ -34,7 +34,7 @@ local T = {
 
 -- Dynamic server strings need matching AFTER the numeric rolls are calculated.
 local function Numbers(text)
-  local a,b,c,d,e
+  local _,a,b,c,d,e
   _,_,a,b = string.find(text, "^Turkey legs drop ([%d%.]+)%% more often and heal ([%d%.]+)%% more%.?$")
   if a then return "Окорочка выпадают на "..a.."% чаще и восстанавливают на "..b.."% больше здоровья." end
   _,_,a,b,c = string.find(text, "^When below ([%d%.]+)%% health, heal for ([%d%.]+)%% of your maximum health%. ([%d%.]+) sec cooldown%.?$")
@@ -83,7 +83,7 @@ local function Missing(text)
   if not string.find(text, "[A-Za-z]") or string.find(text,"|c",1,true) then return end
   HordesRU_Untranslated = HordesRU_Untranslated or {}
   if type(HordesRU_Untranslated) == "table" then
-    HordesRU_Untranslated[text] = (HordesRU_Untranslated[text] or 0) + 1
+    HordesRU_Untranslated[text] = 1
   end
 end
 
