@@ -1,4 +1,4 @@
--- HordesRU v0.8 (post-load, safe addon for Hordes of Azeroth 0.6.x)
+-- HordesRU v0.9 (post-load, safe addon for Hordes of Azeroth 0.6.x)
 -- This addon never changes WoW.exe, any original TOC, addon or server file.
 local dict = {
     ["  ·  AoE"] = "  ·  По области",
@@ -902,12 +902,152 @@ local rewardTexts = {
 }
 for english, russian in pairs(rewardTexts) do dict[english] = russian end
 
-local ruFont = "Interface\\AddOns\\HordesOfAzeroth\\Fonts\\NotoSansSC-Regular.otf"
+-- HordesRU 0.9: spell names, mastery, glossary and Darkmoon names found in
+-- public Hordes of Azeroth SQL migrations. Long Russian phrases are deliberately
+-- condensed so they fit the original, small character- and deck-panels.
+local v09Strings = {
+    ["Burning Embers"] = "Тлеющие угли",
+    ["Immolate applies 1 additional stack of Burning."] = "«Жертвенный огонь» накладывает ещё 1 эффект горения.",
+    ["Master Demonologist"] = "Мастер демонологии",
+    ["Your demons deal 10% more damage for each different demon you command, up to 40%."] = "Урон ваших демонов растёт на 10% за каждый вид демона (до 40%).",
+    ["Each different demon you command makes all your demons deal 10% more damage, up to 40%. Your Power is reduced by 15%."] = "Каждый вид демонов усиливает урон ваших демонов на 10% (до 40%). Ваша сила снижена на 15%.",
+    ["Each different demon you command makes all your demons deal 10% more damage, up to 40%."] = "Каждый вид демонов усиливает их урон на 10% (до 40%).",
+    ["Summons an Imp that hurls 2 Firebolts at a time at enemies within 30 yards, leaving them burning."] = "Призывает беса: он бросает по 2 огненные стрелы во врагов в радиусе 30 ярдов и поджигает их.",
+    ["Summons an Imp that hurls 2 Firebolts at enemies within 30 yards, leaving them burning."] = "Призывает беса. Он бросает 2 огненные стрелы во врагов в радиусе 30 ярдов и поджигает их.",
+    ["Summons an Imp that hurls 2 Firebolts at enemies within 30 yards, leaving them burning"] = "Призывает беса. Он бросает 2 огненные стрелы во врагов в радиусе 30 ярдов и поджигает их.",
+    ["Summons an Imp that hurls volleys of 3 fel Firebolts at enemies within 30 yards, leaving them burning."] = "Призывает беса. Он обстреливает врагов в радиусе 30 ярдов залпами из 3 огненных стрел, вызывая горение.",
+    ["Summons an Imp that hurls fel Firebolts at enemies within 30 yards, leaving them burning."] = "Призывает беса. Он бросает огненные стрелы во врагов в радиусе 30 ярдов и поджигает их.",
+    ["Can evolve into Fel Imps or Imp Swarm through a Legendary rank, offered at rank 10 or higher. Warlocks can choose it as their starter spell at the Run Master."] = "С 10-го ранга доступна легендарная эволюция: «Бесы Скверны» или «Стая бесов». Чернокнижник может выбрать это начальным заклинанием у распорядителя забегов.",
+    ["Can evolve into Fel Imps or Imp Swarm through a Legendary rank, offered at rank 10 or higher."] = "На 10-м ранге и выше может превратиться в «Стаю бесов» или «Бесов Скверны» (легендарный ранг).",
+    ["Warlocks can choose it as their starter spell at the Run Master."] = "Чернокнижник может выбрать это начальным заклинанием у распорядителя забегов.",
+    ["Burning"] = "Горение",
+    ["Burning: Each stack deals Fire damage every tick. Each new stack refreshes all stacks to their full duration, up to 30 stacks. When a burning enemy dies, half of its stacks spread to the 2 nearest enemies within 8 yards, and the damage its stacks had left bursts onto up to 4 enemies within 8 yards, half on each."] = "Горение: каждый эффект периодически наносит урон огнём. Новые эффекты обновляют все стаки (до 30). При гибели врага половина эффектов переходит на двух ближайших, а оставшийся урон поражает до четырёх врагов в радиусе 8 ярдов.",
+    ["Each stack deals Fire damage every tick. Each new stack refreshes all stacks to their full duration, up to 30 stacks. When a burning enemy dies, half of its stacks spread to the 2 nearest enemies within 8 yards, and the damage its stacks had left bursts onto up to 4 enemies within 8 yards, half on each."] = "Каждый эффект наносит периодический урон огнём. Новые эффекты обновляют все стаки (до 30). При гибели врага половина эффектов переходит на двух ближайших, а оставшийся урон поражает до четырёх врагов в радиусе 8 ярдов.",
+    ["Each stack deals Fire damage every tick. Each new stack refreshes all stacks to their full duration, up to 30 stacks. When a burning enemy dies, half of its stacks spread to the 2 nearest enemies within 8 yards, and the damage its stacks had left bursts onto up to 4 enemies within 8 yards, half on each."] = "Каждый эффект наносит периодический урон огнём. Новые эффекты обновляют стаки (до 30). При гибели цели половина переносится на двух врагов, а оставшийся урон поражает до четырёх рядом.",
+    ["Demonology"] = "Демонология",
+    ["Destruction"] = "Разрушение",
+    ["Master Demonologist"] = "Мастер демонологии",
+    ["Shadow Mastery"] = "Власть над Тьмой",
+    ["Improved Corruption"] = "Улучшенная порча",
+    ["Improved Curse of Agony"] = "Улучшенное проклятие агонии",
+    ["Improved Drain Life"] = "Улучшенное похищение жизни",
+    ["Grim Reach"] = "Мрачный предел",
+    ["Siphon Life"] = "Вытягивание жизни",
+    ["Nightmare"] = "Кошмар",
+    ["Fel Concentration"] = "Средоточие Скверны",
+    ["Pandemic"] = "Пандемия",
+    ["Suppression"] = "Подавление",
+    ["Demonic Embrace"] = "Демонические объятия",
+    ["Improved Imp"] = "Улучшенный бес",
+    ["Demon Skin"] = "Шкура демона",
+    ["Improved Voidwalker"] = "Улучшенный демон Бездны",
+    ["Unholy Power"] = "Нечестивая сила",
+    ["Improved Succubus"] = "Улучшенный суккуб",
+    ["Improved Felhunter"] = "Улучшенный охотник Скверны",
+    ["Demonic Sacrifice"] = "Демоническая жертва",
+    ["Fel Intellect"] = "Интеллект Скверны",
+    ["Emberstorm"] = "Огненный вихрь",
+    ["Improved Shadow Bolt"] = "Улучшенная стрела Тьмы",
+    ["Devastation"] = "Опустошение",
+    ["Improved Immolate"] = "Улучшенный жертвенный огонь",
+    ["Bane"] = "Проклятие",
+    ["Improved Rain of Fire"] = "Улучшенный огненный ливень",
+    ["Fire and Brimstone"] = "Огонь и сера",
+    ["Shadow and Flame"] = "Тьма и пламя",
+    ["Aftermath"] = "Последствия",
+    ["Ruin"] = "Разорение",
+    ["Fel Imps"] = "Бесы Скверны",
+    ["Imp Swarm"] = "Стая бесов",
+    ["Immolate"] = "Жертвенный огонь",
+    ["Master Demonologist"] = "Мастер демонологии",
+    ["Imp"] = "Бес",
+    ["Your Decay deals 8% more damage."] = "Урон «Разложения» увеличен на 8%.",
+    ["Your Agony deals 8% more damage."] = "Урон «Агонии» увеличен на 8%.",
+    ["Your Burning deals 8% more damage."] = "Урон горения увеличен на 8%.",
+    ["Your demons have 3% more critical strike chance."] = "Шанс критического удара демонов повышен на 3%.",
+    ["Your critical strikes deal 10% more damage."] = "Критические удары наносят на 10% больше урона.",
+    ["+3 Armor."] = "+3 к броне.",
+    ["+2% Haste."] = "+2% к скорости.",
+    ["+3% Area."] = "+3% к области действия.",
+    ["+2% critical strike chance."] = "+2% к шансу критического удара.",
+    ["Shadow Bolt recharges 8% faster."] = "«Стрела Тьмы» восстанавливается на 8% быстрее.",
+    ["Rain of Fire recharges 15% faster."] = "«Огненный ливень» восстанавливается на 15% быстрее.",
+    ["Immolate strikes 1 additional enemy."] = "«Жертвенный огонь» поражает ещё одну цель.",
+    ["Every card you own can turn up in a chest. Ban the ones you never want to see."] = "Ваши карты могут появляться в сундуках. Ненужные можно запретить.",
+    ["Every Glyph you own can be offered after a mini-boss. Ban the ones you never want to see."] = "Символы предлагаются после мини-боссов. Ненужные можно запретить.",
+    ["Sayge's Table"] = "Стол Сейджа",
+    ["Darkmoon Deck"] = "Колода Новолуния",
+    ["Darkmoon Cards"] = "Карты Новолуния",
+    ["Darkmoon Card"] = "Карта Новолуния",
+    ["Card bans"] = "Запрет карт",
+    ["Glyph bans"] = "Запрет символов",
+    ["Ban This Card"] = "Запретить карту",
+    ["Allow This Card"] = "Разрешить карту",
+    ["Ban This Glyph"] = "Запретить символ",
+    ["Allow This Glyph"] = "Разрешить символ",
+    ["You have no ban slots yet."] = "Ячеек запрета пока нет.",
+    ["Each copy adds a bit less than the one before."] = "Каждая копия слабее предыдущей.",
+    ["Arcanite Skeleton Key"] = "Арканитовый ключ",
+    ["Darkmoon Card: Insight"] = "Карта: Озарение",
+    ["Dirge's Chimaerok Chops"] = "Отбивная химеры",
+    ["Fat Goblin Purse"] = "Кошель гоблина",
+    ["Heavy Runecloth Bandage"] = "Плотная рунная повязка",
+    ["Swiftness Potion"] = "Зелье скорости",
+    ["Tough Jerky"] = "Вяленое мясо",
+    ["Troll's Blood Potion"] = "Зелье крови тролля",
+    ["Blackhand's Breadth"] = "Талисман Чернорука",
+    ["Drake Fang"] = "Клык дракона",
+    ["Earthstrike"] = "Удар земли",
+    ["Barbed Choker"] = "Шипастый ошейник",
+    ["Major Healthstone"] = "Большой камень здоровья",
+    ["Lifestone"] = "Камень жизни",
+    ["Basic Campfire"] = "Костёр",
+    ["Darkmoon Card: Heroism"] = "Карта: Героизм",
+    ["Lifegiving Gem"] = "Животворный самоцвет",
+    ["Royal Seal of Eldre'Thalas"] = "Печать Эльдре'Таласа",
+    ["Force Reactive Disk"] = "Реактивный диск",
+    ["Insignia of the Alliance"] = "Знак Альянса",
+    ["Soulstone"] = "Камень души",
+    ["Hand of Ragnaros"] = "Длань Рагнароса",
+    ["Ironfoe"] = "Железный враг",
+    ["Darkmoon Card: Maelstrom"] = "Карта: Водоворот",
+    ["Gnomish Death Ray"] = "Гномский луч смерти",
+    ["Bloodlust Brooch"] = "Брошь кровожадности",
+    ["Zandalarian Hero Charm"] = "Талисман героя Зандалара",
+    ["Kiss of the Spider"] = "Поцелуй паука",
+    ["Mark of the Champion"] = "Метка чемпиона",
+    ["Gnomish Magnet"] = "Гномский магнит",
+    ["Goblin Rocket Boots"] = "Гоблинские ракетные сапоги",
+    ["Chests have an 11% chance to cost nothing."] = "Сундук с шансом 11% бесплатный.",
+    ["Chests have a 10% chance to cost nothing."] = "Сундук с шансом 10% бесплатный.",
+    ["After 4 sec without being hit, regain 1.35% of your health every second."] = "Если 4 сек. не получать урон, восстанавливается 1,35% здоровья в секунду.",
+    ["After 4 sec without being hit, regain 1% of your health every second."] = "Если 4 сек. не получать урон, восстанавливается 1% здоровья в секунду.",
+    ["Turkey legs drop 50% more often and heal 25% more."] = "Мясо выпадает на 50% чаще и лечит на 25% сильнее.",
+    ["You have no ban slots yet"] = "Ячеек запрета пока нет",
+    ["Common Darkmoon Card (all classes)"] = "Обычная карта Новолуния (все классы)",
+    ["Common Darkmoon Card"] = "Обычная карта Новолуния",
+    ["Starter"] = "Начальная",
+    ["Unlocked"] = "Открыта",
+    ["Darkmoon Tickets"] = "Билеты Новолуния",
+    ["Buy a ban slot: 25 tickets"] = "Купить ячейку: 25 билетов",
+    ["Ban This Card"] = "Запретить карту",
+    ["Ban slots"] = "Ячейки запрета",
+    ["0 used, 0 free"] = "0 занято, 0 свободно",
+}
+for en, ru in pairs(v09Strings) do dict[en] = ru end
+
+local FONT_PATHS = {
+    kr = "Interface\\AddOns\\HordesOfAzeroth\\Fonts\\NotoSansKR-Regular.otf",
+    sc = "Interface\\AddOns\\HordesOfAzeroth\\Fonts\\NotoSansSC-Regular.otf",
+}
+HordesRU_Options = HordesRU_Options or {}
+local fontChoice = HordesRU_Options.font == "sc" and "sc" or "kr"
+local ruFont = FONT_PATHS[fontChoice]
 local cachedFont = setmetatable({}, { __mode = "k" })
 local styledTalents = setmetatable({}, { __mode = "k" })
-local TALENT_TITLE_SIZE = 11.5
-local TALENT_BODY_SIZE = 10.5
-local TOOLTIP_WRAP_CHARS = 39
+local TALENT_TITLE_SIZE = 10.5
+local TALENT_BODY_SIZE = 9.5
+local TOOLTIP_WRAP_CHARS = 33
 
 -- A tooltip line is created before GameTooltip:Show(), so the style must be
 -- established at AddLine time. Changing the font only after Show() caused the
@@ -918,6 +1058,9 @@ local function StyleTalentFont(region, first)
     local ok, path, size, flags = pcall(region.GetFont, region)
     if ok and path == ruFont and size == desired and flags == "" then return end
     local applied, loaded = pcall(region.SetFont, region, ruFont, desired, "")
+    if not applied or not loaded then
+        applied, loaded = pcall(region.SetFont, region, FONT_PATHS.sc, desired, "")
+    end
     if applied and loaded then
         styledTalents[region] = true
         if region.SetShadowColor then pcall(region.SetShadowColor, region, 0, 0, 0, 0.70) end
@@ -965,6 +1108,11 @@ local function TranslateDisplay(text)
         local _, _, color, name, description = string.find(text, "^|c(%x%x%x%x%x%x%x%x)(.-):|r%s*(.+)$")
         if name and description then
             local translatedDescription = dict[description]
+            if not translatedDescription then
+                local collapsed = string.gsub(description, "^%s+", "")
+                collapsed = string.gsub(collapsed, "%s+$", "")
+                translatedDescription = dict[collapsed]
+            end
             if translatedDescription then
                 return "|c" .. color .. (dict[name] or name) .. ":|r " .. translatedDescription
             end
@@ -978,6 +1126,15 @@ local function TranslateDisplay(text)
     if burned then return "+" .. burned .. "% к урону от горения." end
     local bled = MatchCaptures(text, "^%+([%d%.]+)%% Bleed damage%.?$")
     if bled then return "+" .. bled .. "% к урону от кровотечения." end
+    local firedamage = MatchCaptures(text, "^%+([%d%.]+)%% Burning damage%.?$")
+    if firedamage then return "+" .. firedamage .. "% к урону горения." end
+    local ban, chance = MatchCaptures(text, "^Chests have an? ([%d%.]+)%% chance to cost nothing%.?$")
+    if ban then return "Сундук бесплатный с шансом " .. ban .. "%." end
+    local seconds, hp = MatchCaptures(text, "^After ([%d%.]+) sec without being hit, regain ([%d%.]+)%% of your health every second%.?$")
+    if seconds then return "После " .. seconds .. " сек. без урона: +" .. hp .. "% здоровья/сек." end
+    -- Server descriptions for evolving spell ranks vary between builds.
+    local shots = MatchCaptures(text, "^Summons an Imp that hurls ([%d]+) Firebolts at enemies within 30 yards, leaving them burning%.?$")
+    if shots then return "Призывает беса, бросающего " .. shots .. " огненные стрелы по врагам в радиусе 30 ярдов. Накладывает горение." end
     -- Typical server-provided mastery effects, including later ranks (10% -> 20%).
     local value = MatchCaptures(text, "^%+([%d%.]+)%% pickup range%.?$")
     if value then return "+" .. value .. "% к радиусу подбора." end
@@ -1010,7 +1167,7 @@ local function TranslateDisplay(text)
     local _, _, points2 = string.find(text, "^(%d+) Talent Points$")
     if points2 then return points2 .. " очков талантов" end
     local _, _, required, talent = string.find(text, "^Requires (%d+) points in (.+)%.$")
-    if required then return "Нужно " .. required .. " очков в «" .. (dict[talent] or talent) .. "»." end
+    if required then return "Нужно " .. required .. " очк. («" .. (dict[talent] or talent) .. "»)." end
     local _, _, level, maximum = string.find(text, "^Mastery (%d+)/(%d+)$")
     if level then return "Мастерство " .. level .. "/" .. maximum end
     -- Mixed headers: "Mastery 0/30 (10/50)  0 Talent Points".
@@ -1035,10 +1192,35 @@ local function TranslateOne(widget)
         if got and size and size > 0 then
             -- Hordes already ships this Unicode-capable font; nothing is bundled.
             local callOK, fontOK = pcall(widget.SetFont, widget, ruFont, size, "")
+            if not callOK or not fontOK then
+                callOK, fontOK = pcall(widget.SetFont, widget, FONT_PATHS.sc, size, "")
+            end
             cachedFont[widget] = callOK and fontOK ~= nil
         end
     end
     pcall(widget.SetText, widget, translated)
+    -- Card names in the Darkmoon Deck have only 80px; use compact font sizes
+    -- on that frame rather than globally shrinking every HUD label.
+    if type(widget.GetParent) == "function" and type(widget.SetFont) == "function" then
+        local root = widget
+        local isDeck = false
+        local depth = 0
+        while root and depth < 12 do
+            if type(root.GetName) == "function" and root:GetName() == "VanillaBonkDeckFrame" then
+                isDeck = true; break
+            end
+            if type(root.GetParent) ~= "function" then break end
+            root = root:GetParent()
+            depth = depth + 1
+        end
+        if isDeck and type(widget.GetWidth) == "function" then
+            local width = widget:GetWidth() or 0
+            if width > 0 and width <= 120 then
+                local size = VisibleLength(translated) > 19 and 8 or 9
+                pcall(widget.SetFont, widget, ruFont, size, "")
+            end
+        end
+    end
 end
 
 local function Scan(object, depth, seen)
@@ -1128,8 +1310,24 @@ local function InstallOfferHook()
     end
 end
 
+local deckHookInstalled = false
+local function InstallDeckHook()
+    if deckHookInstalled then return end
+    local deck = VanillaBonkDeck
+    if not deck or type(deck.Refresh) ~= "function" then return end
+    deckHookInstalled = true
+    local oldRefresh = deck.Refresh
+    deck.Refresh = function(received)
+        local result = oldRefresh(received)
+        local frame = getglobal and getglobal("VanillaBonkDeckFrame")
+        if frame then Scan(frame, 0, {}) end
+        return result
+    end
+end
+
 local function Apply()
     InstallOfferHook()
+    InstallDeckHook()
     local seen = {}
     if UIParent then Scan(UIParent, 0, seen) end
     if WorldFrame then Scan(WorldFrame, 0, seen) end
@@ -1154,6 +1352,25 @@ local function Apply()
 end
 
 
+local function IsHordesOwner(owner)
+    if not owner then return false end
+    if owner.node or owner.pair then return true end
+    local root = owner
+    local depth = 0
+    while root and depth < 14 do
+        if type(root.GetName) == "function" then
+            local name = root:GetName()
+            if type(name) == "string" and string.find(name, "VanillaBonk", 1, true) then
+                return true
+            end
+        end
+        if type(root.GetParent) ~= "function" then return false end
+        root = root:GetParent()
+        depth = depth + 1
+    end
+    return false
+end
+
 -- Translate while adding lines, before the game measures width/height.
 -- Long translations are wrapped explicitly: v0.6 altered fonts AFTER layout,
 -- which made lower lines overlap or extend beyond the talent tooltip frame.
@@ -1162,7 +1379,7 @@ if GameTooltip and GameTooltip.AddLine and not HordesRU_TooltipHook then
     local originalAddLine = GameTooltip.AddLine
     GameTooltip.AddLine = function(self, text, red, green, blue, wrap)
         local owner = self.GetOwner and self:GetOwner()
-        if owner and (owner.node or owner.pair) and type(text) == "string" then
+        if IsHordesOwner(owner) and type(text) == "string" then
             text = TranslateDisplay(text) or text
             if VisibleLength(text) > TOOLTIP_WRAP_CHARS then
                 text = WrapTooltipText(text, TOOLTIP_WRAP_CHARS)
@@ -1180,13 +1397,41 @@ if GameTooltip and GameTooltip.AddLine and not HordesRU_TooltipHook then
     end
 end
 
+-- Recalculate displayed tooltip geometry AFTER translated FontStrings have
+-- acquired their final glyph metrics. We restrict this to Hordes-only tips.
+if GameTooltip and GameTooltip.Show and not HordesRU_ShowHook then
+    HordesRU_ShowHook = true
+    local baseShow = GameTooltip.Show
+    GameTooltip.Show = function(self)
+        local result = baseShow(self)
+        if IsHordesOwner(self.GetOwner and self:GetOwner()) and self.NumLines then
+            local n = self:NumLines() or 0
+            local total = 17
+            local i
+            for i = 1, n do
+                local left = getglobal and getglobal("GameTooltipTextLeft" .. i)
+                if left and left.IsShown and left:IsShown() then
+                    local h = left.GetHeight and left:GetHeight() or 13
+                    total = total + math.max(12, h) + 3
+                end
+            end
+            -- The stock tooltip has already laid itself out, so don't shrink it:
+            -- only increase height when a translated multi-line hint needs room.
+            if self.GetHeight and self.SetHeight and total > self:GetHeight() then
+                self:SetHeight(total)
+            end
+        end
+        return result
+    end
+end
+
 local runner = CreateFrame("Frame", "HordesRUController")
 local nextUpdate = 0
 local announced = false
 local function Announce()
     if not announced and DEFAULT_CHAT_FRAME then
         announced = true
-        DEFAULT_CHAT_FRAME:AddMessage("|cff55ff99[HordesRU]|r v0.8 loaded (reward cards supported)")
+        DEFAULT_CHAT_FRAME:AddMessage("|cff55ff99[HordesRU]|r v0.9 loaded (compact fonts / rewards / deck)")
     end
 end
 runner:RegisterEvent("PLAYER_LOGIN")
@@ -1204,10 +1449,22 @@ runner:SetScript("OnUpdate", function()
 end)
 
 SLASH_HORDESRU1 = "/hru"
-SlashCmdList["HORDESRU"] = function()
-    Announce()
-    Apply()
-    if DEFAULT_CHAT_FRAME then
-        DEFAULT_CHAT_FRAME:AddMessage("|cff55ff99[HordesRU]|r scan complete.")
+SlashCmdList["HORDESRU"] = function(message)
+    if message == "font sc" or message == "font kr" then
+        local choice = string.sub(message, 6, 7)
+        fontChoice = choice
+        HordesRU_Options.font = choice
+        ruFont = FONT_PATHS[choice]
+        cachedFont = setmetatable({}, { __mode = "k" })
+        styledTalents = setmetatable({}, { __mode = "k" })
+        if DEFAULT_CHAT_FRAME then
+            DEFAULT_CHAT_FRAME:AddMessage("|cff55ff99[HordesRU]|r Font: " .. choice .. " (reload UI to refresh all existing labels)")
+        end
+    else
+        Announce()
+        Apply()
+        if DEFAULT_CHAT_FRAME then
+            DEFAULT_CHAT_FRAME:AddMessage("|cff55ff99[HordesRU]|r scan complete. Font: " .. fontChoice)
+        end
     end
 end
