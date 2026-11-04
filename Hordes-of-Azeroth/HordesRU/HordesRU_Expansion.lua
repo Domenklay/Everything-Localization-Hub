@@ -1332,6 +1332,9 @@ local function Translate(text)
     return text
 end
 
+-- Public read-only translator for the unified chest/offer rendering layer.
+HordesRU_ExpansionTranslate = Translate
+
 -- v1.11: compact Noto Sans KR is applied BEFORE text is measured.
 -- It uses Hordes' own font; no redistributed font files.
 local FONT_KR = "Interface\\AddOns\\HordesOfAzeroth\\Fonts\\NotoSansKR-Regular.otf"
