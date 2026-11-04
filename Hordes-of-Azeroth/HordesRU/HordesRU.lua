@@ -1,4 +1,4 @@
--- HordesRU v0.6 (post-load, safe addon for Hordes of Azeroth 0.6.x)
+-- HordesRU v0.8 (post-load, safe addon for Hordes of Azeroth 0.6.x)
 -- This addon never changes WoW.exe, any original TOC, addon or server file.
 local dict = {
     ["  ·  AoE"] = "  ·  По области",
@@ -812,10 +812,142 @@ local mastery = {
 }
 for english, russian in pairs(mastery) do dict[english] = russian end
 
+-- Server-side mastery and keyword strings added since v0.6.
+-- These are UI substitutions only; no network packets or game DB rows are changed.
+local late = {
+    ["Your shots Mark every enemy they hit and target Marked enemies first. Marked enemies take 30% more damage from you."] = "Выстрелы помечают врагов и сначала поражают помеченных. Вы наносите им на 30% больше урона.",
+    ["Marked enemies take 15% more damage from you and your summons, raised by the marking spell's ranks and Mark upgrades up to 30%. Talents add on top. When a Marked enemy dies, the Mark passes to the 2 nearest unmarked enemies within 10 yards."] = "Помеченные враги получают на 15% больше урона от вас и призванных существ (до 30% с улучшениями). Таланты усиливают эффект. После гибели цели метка переходит к двум врагам в радиусе 10 ярдов.",
+    ["Your pets are always frenzied: +50% damage, and their attacks hit every enemy in front of them. Your other spells deal 15% less damage."] = "Питомцы постоянно в бешенстве: +50% к урону, их атаки поражают всех врагов перед ними. Урон остальных заклинаний снижен на 15%.",
+    ["Each dash leaves one of each of your traps behind, armed at once. Your dash recharges 30% faster."] = "Каждый рывок оставляет по одной ловушке каждого вида, сразу готовой к срабатыванию. Рывок восстанавливается на 30% быстрее.",
+    ["Every 4th cast of each spell critically strikes every enemy it hits, and those critical strikes deal 25% more damage."] = "Каждое четвёртое применение каждого заклинания наносит критический удар всем поражённым врагам. Урон этих критических ударов увеличен на 25%.",
+    ["Shield Block's Shield holds up to 100% of your maximum health instead of 50% and recharges 10% per sec, even while you are struck. While your Shield is above half, you deal 20% more damage."] = "«Блок щитом» поглощает до 100% максимального здоровья вместо 50% и восстанавливает 10% в секунду даже под ударами. Пока щит заполнен более чем наполовину, ваш урон выше на 20%.",
+    ["Exorcism strikes 2 additional enemies, and Art of War can trigger it every 0.5 sec."] = "«Экзорцизм» поражает ещё двух врагов, а «Искусство войны» может вызывать его раз в 0,5 сек.",
+    ["While you stand in your Consecration, you take 20% less damage and deal 20% more damage."] = "Находясь в собственном «Освящении», вы получаете на 20% меньше урона и наносите на 20% больше.",
+    ["Every 4th Crusader Strike is a Templar's Verdict, dealing triple damage to every enemy within 5 yards of the target."] = "Каждый четвёртый «Удар воина Света» становится «Вердиктом храмовника», нанося тройной урон всем врагам в радиусе 5 ярдов от цели.",
+    ["Your abilities apply 1 additional Poison stack per hit, even without Deadly Poison."] = "Ваши способности накладывают ещё один эффект яда за удар, даже без «Смертельного яда».",
+    ["Your single-target hits also strike 2 enemies within 8 yards for 60% damage, even without Blade Flurry."] = "Атаки по одной цели также поражают двух врагов в радиусе 8 ярдов с 60% урона, даже без «Шквала клинков».",
+    ["Ambush also hits every enemy within 8 yards of the target for full damage."] = "«Внезапный удар» также наносит полный урон всем врагам в радиусе 8 ярдов от цели.",
+    ["While you have a Shield, you take 20% less damage and deal 20% more damage."] = "Пока действует щит, вы получаете на 20% меньше урона и наносите на 20% больше.",
+    ["Renew smites while you are above 80% health, not only at full. Smite and Halo cut 2 sec off Holy Word: Chastise."] = "«Обновление» поражает врагов уже при здоровье выше 80%, а не только при полном. «Кара» и «Сияние» сокращают перезарядку «Слова Света: Наказание» на 2 сек.",
+    ["Your Decay deals 30% more damage, and your spells apply 1 more Decay stack."] = "Ваше «Разложение» наносит на 30% больше урона, а заклинания накладывают на один эффект «Разложения» больше.",
+    ["Static discharges at 3 stacks instead of 5."] = "«Статический заряд» срабатывает при трёх эффектах вместо пяти.",
+    ["Windfury Weapon triggers Windfury every 2nd swing instead of every 3rd. Maelstrom Weapon needs 3 melee hits instead of 5."] = "«Оружие неистовства ветра» срабатывает после каждого второго удара вместо третьего. «Оружию водоворота» нужны три удара в ближнем бою вместо пяти.",
+    ["Each of your totem spells plants 1 additional totem."] = "Каждое заклинание тотема устанавливает ещё один тотем.",
+    ["Your dash becomes Blink and recharges twice as fast. Each Blink sets off your Arcane Explosion where you land."] = "Рывок становится «Скачком» и восстанавливается вдвое быстрее. При каждом «Скачке» в месте приземления срабатывает «Чародейский взрыв».",
+    ["Your critical strikes deal 100% more damage. Your maximum health is reduced by 35%."] = "Критические удары наносят на 100% больше урона, но ваше максимальное здоровье снижено на 35%.",
+    ["Chill freezes at 6 stacks instead of 10."] = "«Охлаждение» замораживает цель при шести эффектах вместо десяти.",
+    ["When an enemy with your Decay or Agony dies, they jump to the nearest enemy without them, keeping every stack."] = "Если враг погибает под действием ваших «Разложения» или «Агонии», все их эффекты переходят к ближайшему врагу без них.",
+    ["Your demons deal 10% more damage for each different demon you command, up to 40%."] = "Демоны наносят на 10% больше урона за каждый отдельный вид подвластного демона, максимум 40%.",
+    ["Nightfall fires up to 3 free Shadow Bolts per sec instead of 1, and they deal 50% more damage."] = "«Сумерки» выпускают до трёх бесплатных «Стрел Тьмы» в секунду вместо одной. Их урон увеличен на 50%.",
+    ["Starfall strikes in every form and hits 2 additional enemies."] = "«Звездопад» действует в любом облике и поражает ещё двух врагов.",
+    ["Cat Form: your critical strikes deal 25% more damage. Bear Form: take 20% less damage and move 15% faster."] = "Облик кошки: критические удары наносят на 25% больше урона. Облик медведя: вы получаете на 20% меньше урона и двигаетесь на 15% быстрее.",
+}
+for english, russian in pairs(late) do dict[english] = russian end
+
+-- Display-only translations of server-sourced reward cards. Checked against
+-- the upstream 2026-11-02 / 2026-11-03 bonk_weapon and bonk_passive migrations.
+local rewardTexts = {
+    ["Pack Leader"] = "Вожак стаи",
+    ["Pyromaniac"] = "Пироман",
+    ["Serrated Blades"] = "Зазубренные клинки",
+    ["Explosive Arrow"] = "Взрывная стрела",
+    ["Marked"] = "Помеченная цель",
+    ["New spell"] = "Новое заклинание",
+    ["New passive"] = "Новый пассивный эффект",
+    ["New Spell"] = "Новое заклинание",
+    ["New Passive"] = "Новый пассивный эффект",
+    ["Damage:"] = "Урон:",
+    ["Damage"] = "Урон",
+    ["Spell"] = "Заклинание",
+    ["Passive"] = "Пассивный эффект",
+    ["Piercing Shot"] = "Пронзающий выстрел",
+    ["Chain Detonation"] = "Цепная детонация",
+    ["Focused Aim"] = "Сосредоточенное прицеливание",
+    ["Volley"] = "Град стрел",
+    ["Storm of Arrows"] = "Буря стрел",
+    ["Binding Shot"] = "Сковывающий выстрел",
+    ["Call Pet"] = "Призыв питомца",
+    ["Mend Pet"] = "Лечение питомца",
+    ["Hunter's Mark"] = "Метка охотника",
+    ["Feral Spirit"] = "Дух дикого зверя",
+    ["Shadowfiend"] = "Исчадие Тьмы",
+    ["Berserker Rage"] = "Ярость берсерка",
+    ["Shadow Word: Pain"] = "Слово Тьмы: Боль",
+    ["Pyromania"] = "Пиромания",
+    ["New passive"] = "Новый пассивный эффект",
+    ["A spirit wolf fights for you, biting for damage. Every 15 sec it howls, and your other pets deal double damage to all enemies in front for 6 sec. Your pets mark the enemies they bite with Hunter's Mark."] = "Призрачный волк сражается за вас. Каждые 15 сек. его вой на 6 сек. удваивает урон остальных питомцев по врагам перед ними. Укусы питомцев накладывают «Метку охотника».",
+    ["A spirit wolf fights for you, biting for damage. Every 15 sec it howls, and your other pets deal double damage to all enemies in front for 6 sec. Your pets' bites apply Hunter's Mark."] = "Призрачный волк сражается за вас. Каждые 15 сек. его вой на 6 сек. удваивает урон остальных питомцев по врагам перед ними. Укусы питомцев накладывают «Метку охотника».",
+    ["A spirit wolf fights for you. Every 15 sec it howls: your other pets frenzy for 6 sec, dealing double damage to all in front."] = "Призрачный волк сражается за вас. Каждые 15 сек. его вой на 6 сек. удваивает урон ваших питомцев по врагам перед ними.",
+    ["Fires a shot that pierces every enemy in a line, dealing damage. Aims at the Marked group, or else the largest group. With an Explosive Arrow loaded, its first hit explodes for full damage within 8 yards."] = "Выстрел пробивает врагов по прямой, выбирая помеченную или самую большую группу. Заряженная взрывная стрела при первом попадании взрывается в радиусе 8 ярдов.",
+    ["Fires a shot that pierces every enemy in a line, dealing damage. Aims at the Marked group, or else the largest group. With an Explosive Arrow loaded, the shot explodes on its first hit, dealing its damage to all enemies within 8 yards."] = "Выстрел пробивает врагов по прямой, выбирая помеченную или самую большую группу. Заряженная взрывная стрела при первом попадании наносит урон всем врагам в радиусе 8 ярдов.",
+    ["Rains arrows on the largest group of enemies for 4 sec, dealing damage, 5% more for each different debuff on the target. Every 25 enemies it hits loads an Explosive Arrow into your Aimed Shot, up to 2."] = "4 сек. осыпает стрелами самую большую группу: +5% урона за каждый вид ослабления цели. Каждые 25 попаданий заряжают взрывную стрелу для «Прицельного выстрела» (до двух).",
+    ["Rains arrows on the largest group of enemies within 20 yards for 4 sec, dealing 5% more damage for each different debuff on the target. Every 25 hits loads an Explosive Arrow into your Aimed Shot, up to 2."] = "4 сек. осыпает стрелами крупнейшую группу в радиусе 20 ярдов. +5% урона за вид ослабления цели. Каждые 25 попаданий дают заряд взрывной стрелы (максимум два).",
+    ["Summons a cat that fights for you. Its attacks apply 1 stack of Bleed, its Claw applies 4 stacks, and its Swipe strikes all enemies in front of it."] = "Призывает кошку. Её атаки накладывают кровотечение, «Когти» — 4 эффекта, а «Размах» поражает всех врагов перед ней.",
+    ["+10% Burning damage."] = "+10% к урону от горения.",
+    ["+10% Bleed damage."] = "+10% к урону от кровотечения.",
+    ["+{10}% Burning damage."] = "+10% к урону от горения.",
+    ["+{10}% Bleed damage."] = "+10% к урону от кровотечения.",
+    ["+10% Burning damage"] = "+10% к урону от горения.",
+    ["+10% Bleed damage"] = "+10% к урону от кровотечения.",
+    ["Rains arrows on the largest group of enemies for 3 sec, dealing damage, 5% more for each different debuff on the target. The storm follows the largest group within 25 yards. Every 25 enemies it hits loads an Explosive Arrow into your Aimed Shot, up to 2."] = "3 сек. обстреливает крупнейшую группу врагов. +5% урона за каждый тип ослабления; буря следует за группой в радиусе 25 ярдов. Каждые 25 попаданий заряжают взрывную стрелу (до двух).",
+    ["A spirit wolf fights for you, biting for damage. Every 15 sec it howls: your other pets deal double damage to all enemies in front for 6 sec, and a Boar, Bear or Wyvern joins for 8 sec. The Boar charges through the largest group, the Bear mauls and leaves enemies bleeding, the Wyvern makes your pets deal 20% more damage. Your pets mark the enemies they bite with Hunter's Mark."] = "Призрачный волк сражается за вас. Раз в 15 сек. вой удваивает урон питомцев на 6 сек. и призывает кабана, медведя или виверну на 8 сек. Кабан делает рывок, медведь вызывает кровотечение, виверна усиливает урон питомцев на 20%. Укусы питомцев накладывают «Метку охотника».",
+    ["A spirit wolf fights for you, biting for damage. Every 15 sec it howls: your other pets deal double damage to all enemies in front for 6 sec. Each kill your pets make meanwhile adds 0.5 sec, up to 10 sec left. Your pets mark the enemies they bite with Hunter's Mark."] = "Призрачный волк сражается за вас. Раз в 15 сек. вой на 6 сек. удваивает урон питомцев по врагам перед ними. Убийства питомцев продлевают усиление на 0,5 сек. (до 10 сек.). Укусы накладывают «Метку охотника».",
+    ["Strikes all enemies within 10 yards of you."] = "Поражает всех врагов в радиусе 10 ярдов.",
+    ["Strikes up to 6 enemies within 18 yards in a cone toward the nearest enemy."] = "Поражает до 6 врагов в конусе длиной 18 ярдов в сторону ближайшей цели.",
+    ["Hurls a hammer at the strongest enemy within 20 yards, dealing Holy damage and stunning it for 2 sec. Bosses and mini-bosses are not stunned."] = "Бросает молот в сильнейшего врага в радиусе 20 ярдов, наносит урон Светом и оглушает на 2 сек. Боссы не оглушаются.",
+    ["Summons a Shadowfiend whose attacks apply Decay and whose Shadow Cleave hits every enemy in front of it. Its melee attacks heal you for 0.5% of your maximum health."] = "Призывает исчадие Тьмы. Его атаки накладывают «Разложение», а удары по области поражают врагов перед ним. Атаки исцеляют вас на 0,5% максимального здоровья.",
+    ["Launches 5 Arcane Missiles at the nearest enemy over 1 sec, each dealing Arcane damage. After each Blink, fires all 5 at once at the nearest enemies."] = "За 1 сек. выпускает 5 чародейских стрел в ближайшего врага. После каждого «Скачка» выпускает все 5 стрел одновременно по ближайшим целям.",
+    ["Normal enemies within 8 yards flee in fear for 2 sec, taking Shadow damage every sec. Elites and bosses are unaffected."] = "Обычные враги в радиусе 8 ярдов бегут в страхе 2 сек., ежесекундно получая урон Тьмой. Элиты и боссы неуязвимы к этому страху.",
+    ["Increases your dodge chance by 50% for 5 sec, up to 85%."] = "На 5 сек. увеличивает шанс уклонения на 50%, но не выше 85%.",
+}
+for english, russian in pairs(rewardTexts) do dict[english] = russian end
+
 local ruFont = "Interface\\AddOns\\HordesOfAzeroth\\Fonts\\NotoSansSC-Regular.otf"
 local cachedFont = setmetatable({}, { __mode = "k" })
 local styledTalents = setmetatable({}, { __mode = "k" })
+local TALENT_TITLE_SIZE = 11.5
+local TALENT_BODY_SIZE = 10.5
+local TOOLTIP_WRAP_CHARS = 39
 
+-- A tooltip line is created before GameTooltip:Show(), so the style must be
+-- established at AddLine time. Changing the font only after Show() caused the
+-- measured line height/width to mismatch the rendered text in v0.6.
+local function StyleTalentFont(region, first)
+    if not region or type(region.GetFont) ~= "function" or type(region.SetFont) ~= "function" then return end
+    local desired = first and TALENT_TITLE_SIZE or TALENT_BODY_SIZE
+    local ok, path, size, flags = pcall(region.GetFont, region)
+    if ok and path == ruFont and size == desired and flags == "" then return end
+    local applied, loaded = pcall(region.SetFont, region, ruFont, desired, "")
+    if applied and loaded then
+        styledTalents[region] = true
+        if region.SetShadowColor then pcall(region.SetShadowColor, region, 0, 0, 0, 0.70) end
+        if region.SetShadowOffset then pcall(region.SetShadowOffset, region, 1, -1) end
+    end
+end
+
+local function VisibleLength(value)
+    local clean = string.gsub(value, "|c%x%x%x%x%x%x%x%x", "")
+    clean = string.gsub(clean, "|r", "")
+    -- UTF-8 Cyrillic: count code points rather than bytes.
+    clean = string.gsub(clean, "[\128-\191]", "")
+    return string.len(clean)
+end
+
+local function WrapTooltipText(value, maxChars)
+    if VisibleLength(value) <= maxChars or string.find(value, "\n", 1, true) then return value end
+    local out, length = {}, 0
+    for word in string.gfind(value, "%S+") do
+        local width = VisibleLength(word)
+        if length > 0 and length + 1 + width > maxChars then
+            table.insert(out, "\n" .. word)
+            length = width
+        else
+            table.insert(out, (length > 0 and " " or "") .. word)
+            length = length + (length > 0 and 1 or 0) + width
+        end
+    end
+    return table.concat(out)
+end
 
 -- Translates predictable *displayed* numeric strings without touching game protocol fields.
 -- Vanilla WoW 1.12 / Benilla Lua 5.0 has string.find, not string.match.
@@ -827,6 +959,25 @@ end
 
 local function TranslateDisplay(text)
     if dict[text] then return dict[text] end
+    -- Hordes glossary adds WoW color markup around term names: the underlying
+    -- keyword description must be translated separately, without dropping colors.
+    if string.find(text, "|c", 1, true) or string.find(text, "|r", 1, true) then
+        local _, _, color, name, description = string.find(text, "^|c(%x%x%x%x%x%x%x%x)(.-):|r%s*(.+)$")
+        if name and description then
+            local translatedDescription = dict[description]
+            if translatedDescription then
+                return "|c" .. color .. (dict[name] or name) .. ":|r " .. translatedDescription
+            end
+        end
+        local plain = string.gsub(text, "|c%x%x%x%x%x%x%x%x", "")
+        plain = string.gsub(plain, "|r", "")
+        if dict[plain] then return dict[plain] end
+    end
+    -- Server passives are rendered with a number replacing the {10} database token.
+    local burned = MatchCaptures(text, "^%+([%d%.]+)%% Burning damage%.?$")
+    if burned then return "+" .. burned .. "% к урону от горения." end
+    local bled = MatchCaptures(text, "^%+([%d%.]+)%% Bleed damage%.?$")
+    if bled then return "+" .. bled .. "% к урону от кровотечения." end
     -- Typical server-provided mastery effects, including later ranks (10% -> 20%).
     local value = MatchCaptures(text, "^%+([%d%.]+)%% pickup range%.?$")
     if value then return "+" .. value .. "% к радиусу подбора." end
@@ -859,7 +1010,7 @@ local function TranslateDisplay(text)
     local _, _, points2 = string.find(text, "^(%d+) Talent Points$")
     if points2 then return points2 .. " очков талантов" end
     local _, _, required, talent = string.find(text, "^Requires (%d+) points in (.+)%.$")
-    if required then return "Требуется " .. required .. " очков в ветке «" .. (dict[talent] or talent) .. "»." end
+    if required then return "Нужно " .. required .. " очков в «" .. (dict[talent] or talent) .. "»." end
     local _, _, level, maximum = string.find(text, "^Mastery (%d+)/(%d+)$")
     if level then return "Мастерство " .. level .. "/" .. maximum end
     -- Mixed headers: "Mastery 0/30 (10/50)  0 Talent Points".
@@ -915,31 +1066,87 @@ local function Scan(object, depth, seen)
     end
 end
 
+-- Hook the actual Hordes of Azeroth reward card layout, not the on-screen
+-- HTML result: card.description:SetText() receives formatted HTML, not English.
+-- Translate a shallow COPY so offer data / network IDs remain original.
+local offerHookInstalled = false
+local function InstallOfferHook()
+    if offerHookInstalled then return end
+    local frame = getglobal and getglobal("VanillaBonkOffer")
+    if not frame or type(frame.FitCard) ~= "function" then return end
+    offerHookInstalled = true
+    local oldFitCard = frame.FitCard
+    frame.FitCard = function(card, option, width, hasLock)
+        if not card or not option then return oldFitCard(card, option, width, hasLock) end
+        local english = type(option.description) == "string" and option.description or ""
+        local russian = TranslateDisplay(english)
+        local translatedOption = option
+        if russian and russian ~= english then
+            translatedOption = {}
+            for key, value in pairs(option) do translatedOption[key] = value end
+            translatedOption.description = russian
+        end
+        -- Original FitCard makes the HTML and calculates text room. This wrapper
+        -- preserves its dynamic sizing and updates both measure and rendered fonts.
+        local result = oldFitCard(card, translatedOption, width, hasLock)
+        if card.name and type(option.name) == "string" then
+            local title = TranslateDisplay(option.name)
+            if title and title ~= option.name then
+                if card.name.SetFont then pcall(card.name.SetFont, card.name, ruFont, 14, "") end
+                card.name:SetText(title)
+            end
+        end
+        if card.level then TranslateOne(card.level) end
+        if card.damage then
+            if card.damage.label then TranslateOne(card.damage.label) end
+            if card.damage.before then TranslateOne(card.damage.before) end
+        end
+        -- SimpleHTML uses a separate paragraph font; keep its glyph metrics in
+        -- sync with the hidden measurement FontString to prevent clipping.
+        if translatedOption ~= option and card.measure and card.description then
+            local room = card.description.GetHeight and card.description:GetHeight() or 0
+            local size = 11
+            while size >= 9 do
+                local ok = pcall(card.measure.SetFont, card.measure, ruFont, size, "")
+                if not ok then break end
+                local needed = card.measure.GetHeight and card.measure:GetHeight() or 0
+                if room == 0 or needed <= room or size == 9 then break end
+                size = size - 1
+            end
+            pcall(card.description.SetFont, card.description, "P", ruFont, size, "")
+            local needed = card.measure.GetHeight and card.measure:GetHeight() or 0
+            if room > 0 and needed > room then
+                card.overflow = math.max(card.overflow or 0, needed - room)
+            end
+        end
+        if card.stats then
+            for _, block in ipairs(card.stats) do
+                if block.label then TranslateOne(block.label) end
+            end
+        end
+        return result
+    end
+end
+
 local function Apply()
+    InstallOfferHook()
     local seen = {}
     if UIParent then Scan(UIParent, 0, seen) end
     if WorldFrame then Scan(WorldFrame, 0, seen) end
     if GameTooltip then Scan(GameTooltip, 0, seen) end
     if ItemRefTooltip then Scan(ItemRefTooltip, 0, seen) end
-    -- Talent tooltip is rendered from server strings with mixed Latin/Cyrillic.
-    -- Style all its lines consistently to avoid an ugly mixed-font appearance.
+    -- The same FontStrings are reused for new talent tooltips. Keep their
+    -- font compact without overriding existing colored lines or game tooltips.
     if GameTooltip and GameTooltip.IsShown and GameTooltip:IsShown() and GameTooltip.GetOwner then
         local owner = GameTooltip:GetOwner()
         if owner and (owner.node or owner.pair) then
             local regions = { GameTooltip:GetRegions() }
+            local title = getglobal and getglobal("GameTooltipTextLeft1")
             local i
             for i = 1, table.getn(regions) do
                 local region = regions[i]
-                if region and region.GetFont and region.SetFont then
-                    if not styledTalents[region] then
-                        -- 13px, no heavy outline. Keep original text colours.
-                        local ok, loaded = pcall(region.SetFont, region, ruFont, 13, "")
-                        if ok and loaded ~= nil then
-                            if region.SetShadowColor then pcall(region.SetShadowColor, region, 0, 0, 0, 0.90) end
-                            if region.SetShadowOffset then pcall(region.SetShadowOffset, region, 1, -1) end
-                            styledTalents[region] = true
-                        end
-                    end
+                if region and region.GetText then
+                    StyleTalentFont(region, region == title)
                 end
             end
         end
@@ -947,9 +1154,9 @@ local function Apply()
 end
 
 
--- Translate mastery tooltip lines at creation, not only during periodic UI scans.
--- The owner marker exists on the official talent-tree buttons. Outside talents,
--- preserve the original GameTooltip behavior word for word.
+-- Translate while adding lines, before the game measures width/height.
+-- Long translations are wrapped explicitly: v0.6 altered fonts AFTER layout,
+-- which made lower lines overlap or extend beyond the talent tooltip frame.
 if GameTooltip and GameTooltip.AddLine and not HordesRU_TooltipHook then
     HordesRU_TooltipHook = true
     local originalAddLine = GameTooltip.AddLine
@@ -957,6 +1164,17 @@ if GameTooltip and GameTooltip.AddLine and not HordesRU_TooltipHook then
         local owner = self.GetOwner and self:GetOwner()
         if owner and (owner.node or owner.pair) and type(text) == "string" then
             text = TranslateDisplay(text) or text
+            if VisibleLength(text) > TOOLTIP_WRAP_CHARS then
+                text = WrapTooltipText(text, TOOLTIP_WRAP_CHARS)
+                wrap = 1
+            end
+            local result = originalAddLine(self, text, red, green, blue, wrap)
+            local number = self.NumLines and self:NumLines()
+            if number and getglobal then
+                StyleTalentFont(getglobal("GameTooltipTextLeft" .. number), number == 1)
+                StyleTalentFont(getglobal("GameTooltipTextRight" .. number), false)
+            end
+            return result
         end
         return originalAddLine(self, text, red, green, blue, wrap)
     end
@@ -968,7 +1186,7 @@ local announced = false
 local function Announce()
     if not announced and DEFAULT_CHAT_FRAME then
         announced = true
-        DEFAULT_CHAT_FRAME:AddMessage("|cff55ff99[HordesRU]|r v0.6 loaded")
+        DEFAULT_CHAT_FRAME:AddMessage("|cff55ff99[HordesRU]|r v0.8 loaded (reward cards supported)")
     end
 end
 runner:RegisterEvent("PLAYER_LOGIN")
