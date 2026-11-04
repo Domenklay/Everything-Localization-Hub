@@ -5032,7 +5032,7 @@
       "column": "description",
       "id": 2,
       "english": "Regain 0.4% of your health every second.",
-      "translation": ""
+      "translation": "Восстанавливает 0.4% здоровья ежесекундно."
     },
     {
       "table": "bonk_card",
@@ -5060,7 +5060,7 @@
       "column": "description",
       "id": 4,
       "english": "+16% maximum health.",
-      "translation": ""
+      "translation": "+16% к максимальному здоровью."
     },
     {
       "table": "bonk_card",
@@ -5144,7 +5144,7 @@
       "column": "description",
       "id": 10,
       "english": "+8 Armor.",
-      "translation": ""
+      "translation": "+8 к броне."
     },
     {
       "table": "bonk_card",
@@ -5312,7 +5312,7 @@
       "column": "description",
       "id": 22,
       "english": "+4% critical strike chance.",
-      "translation": ""
+      "translation": "+4% к шансу критического удара."
     },
     {
       "table": "bonk_card",
@@ -5326,7 +5326,7 @@
       "column": "description",
       "id": 23,
       "english": "+7% Haste.",
-      "translation": ""
+      "translation": "+7% к скорости."
     },
     {
       "table": "bonk_card",
@@ -5438,7 +5438,7 @@
       "column": "description",
       "id": 32,
       "english": "+12% critical strike damage.",
-      "translation": ""
+      "translation": "+12% к урону критических ударов."
     },
     {
       "table": "bonk_card",
@@ -5452,7 +5452,7 @@
       "column": "description",
       "id": 33,
       "english": "+6% Area.",
-      "translation": ""
+      "translation": "+6% к области действия."
     },
     {
       "table": "bonk_card",
@@ -5466,7 +5466,7 @@
       "column": "description",
       "id": 34,
       "english": "+3% dodge chance.",
-      "translation": ""
+      "translation": "+3% к шансу уклонения."
     },
     {
       "table": "bonk_card",
@@ -7993,7 +7993,7 @@
       "column": "description",
       "id": 10325,
       "english": "Concussion Blow slows by 20% more.",
-      "translation": ""
+      "translation": "«Оглушающий удар» замедляет ещё на 20%."
     },
     {
       "table": "bonk_mastery",
@@ -8007,7 +8007,7 @@
       "column": "description",
       "id": 10326,
       "english": "Revenge heals you for 0.5% of your maximum health.",
-      "translation": ""
+      "translation": "«Реванш» восстанавливает 0.5% максимального здоровья."
     },
     {
       "table": "bonk_mastery",
@@ -8063,7 +8063,7 @@
       "column": "description",
       "id": 10330,
       "english": "Thunder Clap heals you for 1% of your maximum health.",
-      "translation": ""
+      "translation": "«Удар грома» восстанавливает 1% максимального здоровья."
     },
     {
       "table": "bonk_mastery",
@@ -8301,7 +8301,7 @@
       "column": "description",
       "id": 20124,
       "english": "Light's Hammer heals you for 1% of your maximum health.",
-      "translation": ""
+      "translation": "«Молот Света» восстанавливает 1% максимального здоровья."
     },
     {
       "table": "bonk_mastery",
@@ -8651,7 +8651,7 @@
       "column": "description",
       "id": 20224,
       "english": "Consecration slows normal enemies on it by 20%.",
-      "translation": ""
+      "translation": "«Освящение» замедляет обычных врагов внутри на 20%."
     },
     {
       "table": "bonk_mastery",
@@ -8665,7 +8665,7 @@
       "column": "description",
       "id": 20225,
       "english": "Consecrated Ground slows by 10% more.",
-      "translation": ""
+      "translation": "«Освящённая земля» замедляет ещё на 10%."
     },
     {
       "table": "bonk_mastery",
@@ -10989,7 +10989,7 @@
       "column": "description",
       "id": 40323,
       "english": "Shadow Dance lasts 1 sec longer.",
-      "translation": ""
+      "translation": "«Танец теней» действует на 1 сек. дольше."
     },
     {
       "table": "bonk_mastery",
@@ -11479,7 +11479,7 @@
       "column": "description",
       "id": 50204,
       "english": "Increases the radius of Halo by 6%.",
-      "translation": ""
+      "translation": "Радиус «Ореол» увеличен на 6%."
     },
     {
       "table": "bonk_mastery",
@@ -12025,7 +12025,7 @@
       "column": "description",
       "id": 50328,
       "english": "Your Decay can critically strike for half the critical strike bonus.",
-      "translation": ""
+      "translation": "Эффект «Разложение» может наносить критический урон с половиной обычного бонуса."
     },
     {
       "table": "bonk_mastery",
@@ -15063,7 +15063,7 @@
       "column": "description",
       "id": 90325,
       "english": "Increases the radius of Hellfire by 20%.",
-      "translation": ""
+      "translation": "Радиус «Адское пламя» увеличен на 20%."
     },
     {
       "table": "bonk_mastery",
@@ -15875,7 +15875,7 @@
       "column": "description",
       "id": 110304,
       "english": "Reduces the cooldown of Tranquility by 8%.",
-      "translation": ""
+      "translation": "Перезарядка «Спокойствие» сокращена на 8%."
     },
     {
       "table": "bonk_mastery",
@@ -20621,7 +20621,7 @@
       "column": "description",
       "id": 5,
       "english": "+2% movement speed.",
-      "translation": ""
+      "translation": "+2% к скорости передвижения."
     },
     {
       "table": "bonk_upgrade",
@@ -20649,7 +20649,7 @@
       "column": "description",
       "id": 14,
       "english": "+10% pickup range.",
-      "translation": ""
+      "translation": "+10% к радиусу подбора."
     },
     {
       "table": "bonk_upgrade",
@@ -20887,7 +20887,7 @@
       "column": "description",
       "id": 40,
       "english": "+3% Power.",
-      "translation": ""
+      "translation": "+3% к силе."
     },
     {
       "table": "bonk_upgrade",
@@ -20901,7 +20901,7 @@
       "column": "description",
       "id": 41,
       "english": "+2.5% Haste.",
-      "translation": ""
+      "translation": "+2.5% к скорости."
     },
     {
       "table": "bonk_upgrade",
@@ -20915,7 +20915,7 @@
       "column": "description",
       "id": 42,
       "english": "+1.2% critical strike chance.",
-      "translation": ""
+      "translation": "+1.2% к шансу критического удара."
     },
     {
       "table": "bonk_upgrade",
@@ -20929,7 +20929,7 @@
       "column": "description",
       "id": 43,
       "english": "+4% maximum health.",
-      "translation": ""
+      "translation": "+4% к максимальному здоровью."
     },
     {
       "table": "bonk_upgrade",
@@ -20943,7 +20943,7 @@
       "column": "description",
       "id": 44,
       "english": "+1.5 Armor.",
-      "translation": ""
+      "translation": "+1.5 к броне."
     },
     {
       "table": "bonk_upgrade",
@@ -20957,7 +20957,7 @@
       "column": "description",
       "id": 45,
       "english": "+0.8% dodge chance.",
-      "translation": ""
+      "translation": "+0.8% к шансу уклонения."
     },
     {
       "table": "bonk_upgrade",
@@ -20971,7 +20971,7 @@
       "column": "description",
       "id": 46,
       "english": "+4% critical strike damage.",
-      "translation": ""
+      "translation": "+4% к урону критических ударов."
     },
     {
       "table": "bonk_upgrade",
@@ -20985,7 +20985,7 @@
       "column": "description",
       "id": 47,
       "english": "+2.5% Area.",
-      "translation": ""
+      "translation": "+2.5% к области действия."
     },
     {
       "table": "bonk_upgrade",
