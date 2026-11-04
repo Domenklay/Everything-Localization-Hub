@@ -2685,4 +2685,4 @@ installed:SetScript("OnUpdate",function()
   Setup()
 end)
 Setup()
-if DEFAULT_CHAT_FRAME then DEFAULT_CHAT_FRAME:AddMessage("|cff55ff99[HordesRU]|r v1.7: полный каталог талантов подключён") end
+-- HordesRU v1.11: core emits the startup announcement.

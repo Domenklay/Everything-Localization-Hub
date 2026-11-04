@@ -3056,9 +3056,9 @@ local FONT_PATHS = {
     sc = "Interface\\AddOns\\HordesOfAzeroth\\Fonts\\NotoSansSC-Regular.otf",
 }
 HordesRU_Options = HordesRU_Options or {}
-if HordesRU_Options.fontMigration ~= "1.3" then
+if HordesRU_Options.fontMigration ~= "1.11" then
     HordesRU_Options.font = "kr"
-    HordesRU_Options.fontMigration = "1.3"
+    HordesRU_Options.fontMigration = "1.11"
 end
 local fontChoice = HordesRU_Options.font == "sc" and "sc" or "kr"
 local ruFont = FONT_PATHS[fontChoice]
@@ -3718,7 +3718,7 @@ local announced = false
 local function Announce()
     if not announced and DEFAULT_CHAT_FRAME then
         announced = true
-        DEFAULT_CHAT_FRAME:AddMessage("|cff55ff99[HordesRU]|r v1.3 loaded (integrated 702 server translations)")
+        DEFAULT_CHAT_FRAME:AddMessage("|cff55ff99[HordesRU]|r v1.11: единая русификация загружена (шрифт KR)")
     end
 end
 runner:RegisterEvent("PLAYER_LOGIN")

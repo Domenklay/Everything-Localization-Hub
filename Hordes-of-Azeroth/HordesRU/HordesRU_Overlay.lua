@@ -2721,6 +2721,4 @@ controller:SetScript("OnUpdate",function()
 end)
 Apply()
 InstallTalentDataHook()
-if DEFAULT_CHAT_FRAME then
-  DEFAULT_CHAT_FRAME:AddMessage("|cff55ff99[HordesRU]|r v1.6: данные талантов и справочник эффектов подключены")
-end
+-- HordesRU v1.11: core emits the startup announcement.
