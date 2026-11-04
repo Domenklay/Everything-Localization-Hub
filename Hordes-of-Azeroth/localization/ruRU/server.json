@@ -10107,7 +10107,7 @@
       "column": "description",
       "id": 40102,
       "english": "Each Mutilate stab applies 2 stacks of Poison.",
-      "translation": ""
+      "translation": "Каждый удар Расправы накладывает 2 эффекта яда."
     },
     {
       "table": "bonk_mastery",
@@ -10149,7 +10149,7 @@
       "column": "description",
       "id": 40105,
       "english": "Envenom's window lasts 0.5 sec longer.",
-      "translation": ""
+      "translation": "Окно действия «Отравления» длится на 0,5 сек. дольше."
     },
     {
       "table": "bonk_mastery",
@@ -10163,7 +10163,7 @@
       "column": "description",
       "id": 40106,
       "english": "When a Poisoned enemy dies, its Poison spreads to 1 additional nearby enemy. Can't be learned with Seal Fate.",
-      "translation": ""
+      "translation": "Когда отравленный враг погибает, его яд переходит на ещё одного ближайшего противника. Несовместимо с «Печатью судьбы»."
     },
     {
       "table": "bonk_mastery",
@@ -10177,7 +10177,7 @@
       "column": "description",
       "id": 40107,
       "english": "Mutilate stabs 1 additional enemy. Can't be learned with Improved Poisons.",
-      "translation": ""
+      "translation": "Расправа поражает на одного врага больше. Несовместимо с «Улучшенными ядами»."
     },
     {
       "table": "bonk_mastery",
@@ -10205,7 +10205,7 @@
       "column": "description",
       "id": 40109,
       "english": "+2% critical strike chance against Poisoned enemies.",
-      "translation": ""
+      "translation": "Шанс критического удара по отравленным врагам повышен на 2%."
     },
     {
       "table": "bonk_mastery",
@@ -10331,7 +10331,7 @@
       "column": "description",
       "id": 40124,
       "english": "During Envenom's window, your hits apply 3 additional stacks of Poison instead of 2.",
-      "translation": ""
+      "translation": "Во время действия Отравления ваши удары накладывают 3 дополнительных эффекта яда вместо 2."
     },
     {
       "table": "bonk_mastery",
@@ -10359,7 +10359,7 @@
       "column": "description",
       "id": 40126,
       "english": "Each Poisoned enemy that dies reduces the cooldown of Envenom by 0.5 sec.",
-      "translation": ""
+      "translation": "Каждый погибший отравленный враг сокращает перезарядку Отравления на 0,5 сек."
     },
     {
       "table": "bonk_mastery",
@@ -10387,7 +10387,7 @@
       "column": "description",
       "id": 40128,
       "english": "Envenom strikes each target twice.",
-      "translation": ""
+      "translation": "Отравление поражает каждую цель дважды."
     },
     {
       "table": "bonk_mastery",
@@ -10513,7 +10513,7 @@
       "column": "description",
       "id": 40207,
       "english": "Sinister Strike stabs 1 additional enemy. Can't be learned with Improved Killing Spree.",
-      "translation": ""
+      "translation": "Коварный удар поражает ещё одного врага. Несовместимо с «Улучшенной серии убийств»."
     },
     {
       "table": "bonk_mastery",
@@ -10569,7 +10569,7 @@
       "column": "description",
       "id": 40211,
       "english": "Killing Spree's strikes always critically strike.",
-      "translation": ""
+      "translation": "Удары Серии убийств всегда наносят критический урон."
     },
     {
       "table": "bonk_mastery",
@@ -10681,7 +10681,7 @@
       "column": "description",
       "id": 40225,
       "english": "Restless Blades also reduces the cooldown of Blade Flurry by 1 sec.",
-      "translation": ""
+      "translation": "Неутомимые клинки дополнительно сокращают перезарядку Шквала клинков на 1 сек."
     },
     {
       "table": "bonk_mastery",
@@ -10723,7 +10723,7 @@
       "column": "description",
       "id": 40228,
       "english": "Each Eviscerate gives you +15% Haste for 5 sec.",
-      "translation": ""
+      "translation": "Каждое применение Потрошения повышает скорость на 15% на 5 сек."
     },
     {
       "table": "bonk_mastery",
@@ -10737,7 +10737,7 @@
       "column": "description",
       "id": 40229,
       "english": "Sinister Strike has a 20% chance to stab twice.",
-      "translation": ""
+      "translation": "Коварный удар с вероятностью 20% поражает цель дважды."
     },
     {
       "table": "bonk_mastery",
@@ -10779,7 +10779,7 @@
       "column": "description",
       "id": 40302,
       "english": "Shuriken Toss throws 1 additional shuriken.",
-      "translation": ""
+      "translation": "Бросок сюрикена выпускает ещё один сюрикен."
     },
     {
       "table": "bonk_mastery",
@@ -10821,7 +10821,7 @@
       "column": "description",
       "id": 40305,
       "english": "Your hits deal 5% more damage to enemies above 80% health.",
-      "translation": ""
+      "translation": "Ваш урон по врагам с запасом здоровья выше 80% повышен на 5%."
     },
     {
       "table": "bonk_mastery",
@@ -10849,7 +10849,7 @@
       "column": "description",
       "id": 40307,
       "english": "Once per stage, dropping below 20% health grants a Shield of 30% of your maximum health. Can't be learned with Elusiveness.",
-      "translation": ""
+      "translation": "Раз за этап, когда здоровье падает ниже 20%, вы получаете щит величиной 30% максимального здоровья. Несовместимо с «Неуловимостью»."
     },
     {
       "table": "bonk_mastery",
@@ -10891,7 +10891,7 @@
       "column": "description",
       "id": 40310,
       "english": "Ambush also hits every enemy within 8 yards of the target for half damage.",
-      "translation": ""
+      "translation": "Внезапный удар также поражает всех врагов в радиусе 8 м от цели, нанося половину урона."
     },
     {
       "table": "bonk_mastery",
@@ -10975,7 +10975,7 @@
       "column": "description",
       "id": 40322,
       "english": "Your first hit on an elite or boss sets off 2 Ambush strikes.",
-      "translation": ""
+      "translation": "Первая атака по элитному врагу или боссу вызывает 2 Внезапных удара."
     },
     {
       "table": "bonk_mastery",
@@ -11003,7 +11003,7 @@
       "column": "description",
       "id": 40324,
       "english": "Each kill during Shadow Dance reduces its cooldown by 1 sec.",
-      "translation": ""
+      "translation": "Каждое убийство во время Танца теней сокращает его перезарядку на 1 сек."
     },
     {
       "table": "bonk_mastery",
@@ -11017,7 +11017,7 @@
       "column": "description",
       "id": 40325,
       "english": "Shuriken Toss critical strikes set off Ambush on their target. Once per enemy every 6 sec.",
-      "translation": ""
+      "translation": "Критические попадания Броска сюрикена вызывают Внезапный удар по цели. Не чаще раза в 6 сек. на врага."
     },
     {
       "table": "bonk_mastery",
@@ -11031,7 +11031,7 @@
       "column": "description",
       "id": 40326,
       "english": "Each dodge sets off Ambush on the attacker.",
-      "translation": ""
+      "translation": "Каждое ваше уклонение вызывает Внезапный удар по нападавшему."
     },
     {
       "table": "bonk_mastery",
@@ -11059,7 +11059,7 @@
       "column": "description",
       "id": 40328,
       "english": "Each Ambush gives +1% Power for 8 sec, stacking up to 10 times.",
-      "translation": ""
+      "translation": "Каждый Внезапный удар даёт +1% к силе на 8 сек. Суммируется до 10 раз."
     },
     {
       "table": "bonk_mastery",
@@ -11073,7 +11073,7 @@
       "column": "description",
       "id": 40329,
       "english": "Shadow Dance sets off Ambush on every enemy within 8 yards.",
-      "translation": ""
+      "translation": "Танец теней вызывает Внезапный удар по каждому врагу в радиусе 8 м."
     },
     {
       "table": "bonk_mastery",
@@ -11157,7 +11157,7 @@
       "column": "description",
       "id": 50106,
       "english": "Once per stage, dropping below 20% health grants a Shield of 30% of your maximum health. Can't be learned with Inner Focus.",
-      "translation": ""
+      "translation": "Раз за этап, когда здоровье падает ниже 20%, вы получаете щит величиной 30% максимального здоровья. Несовместимо с «Внутренним сосредоточением»."
     },
     {
       "table": "bonk_mastery",
@@ -11171,7 +11171,7 @@
       "column": "description",
       "id": 50107,
       "english": "Each enemy Penance kills reduces its cooldown by 0.5 sec. Can't be learned with Martyrdom.",
-      "translation": ""
+      "translation": "Каждый враг, убитый Покаянием, сокращает перезарядку этого заклинания на 0,5 сек. Несовместимо с «Мученичеством»."
     },
     {
       "table": "bonk_mastery",
@@ -11325,7 +11325,7 @@
       "column": "description",
       "id": 50124,
       "english": "Psychic Scream's fear lasts 1 sec longer.",
-      "translation": ""
+      "translation": "Страх от Психического крика длится на 1 сек. дольше."
     },
     {
       "table": "bonk_mastery",
@@ -11353,7 +11353,7 @@
       "column": "description",
       "id": 50126,
       "english": "Penance critical strikes give you a Shield of 1% of your maximum health.",
-      "translation": ""
+      "translation": "Критические удары Покаяния создают щит величиной 1% максимального здоровья."
     },
     {
       "table": "bonk_mastery",
@@ -11367,7 +11367,7 @@
       "column": "description",
       "id": 50127,
       "english": "After each Power Word: Shield, +15% Haste for 4 sec.",
-      "translation": ""
+      "translation": "После каждого применения Слова силы: Щит скорость повышается на 15% на 4 сек."
     },
     {
       "table": "bonk_mastery",
@@ -11395,7 +11395,7 @@
       "column": "description",
       "id": 50129,
       "english": "Enemies hit by Penance take 15% more damage from you for 6 sec.",
-      "translation": ""
+      "translation": "Враги, поражённые Покаянием, получают от вас на 15% больше урона в течение 6 сек."
     },
     {
       "table": "bonk_mastery",
@@ -11409,7 +11409,7 @@
       "column": "description",
       "id": 50130,
       "english": "Power Word: Shield stuns normal enemies within 6 yards for 1 sec. Once per enemy every 6 sec.",
-      "translation": ""
+      "translation": "Слово силы: Щит оглушает обычных врагов в радиусе 6 м на 1 сек. Не чаще раза в 6 сек. на врага."
     },
     {
       "table": "bonk_mastery",
@@ -11423,7 +11423,7 @@
       "column": "description",
       "id": 50131,
       "english": "While you have a Shield, you deal 10% more damage.",
-      "translation": ""
+      "translation": "Пока у вас есть щит, ваш урон повышен на 10%."
     },
     {
       "table": "bonk_mastery",
@@ -11563,7 +11563,7 @@
       "column": "description",
       "id": 50210,
       "english": "Renew smites while you are above 80% health, not only at full. Smite and Halo reduce the cooldown of Holy Word: Chastise by 2 sec.",
-      "translation": ""
+      "translation": "Пока у вас больше 80% здоровья, а не только при полном здоровье, Обновление наносит урон Карой. Кара и Ореол сокращают перезарядку Слова Света: Наказание на 2 сек."
     },
     {
       "table": "bonk_mastery",
@@ -11605,7 +11605,7 @@
       "column": "description",
       "id": 50222,
       "english": "Renew's smites reduce the cooldown of Holy Word: Chastise by 0.3 sec.",
-      "translation": ""
+      "translation": "Удары Кары, вызванные Обновлением, сокращают перезарядку Слова Света: Наказание на 0,3 сек."
     },
     {
       "table": "bonk_mastery",
@@ -11619,7 +11619,7 @@
       "column": "description",
       "id": 50223,
       "english": "Light of the Naaru also counts Renew's heals.",
-      "translation": ""
+      "translation": "Свет наару также учитывает лечение от Обновления."
     },
     {
       "table": "bonk_mastery",
@@ -11661,7 +11661,7 @@
       "column": "description",
       "id": 50226,
       "english": "Holy Word: Chastise stuns normal enemies it hits for 1 sec. Once per enemy every 6 sec.",
-      "translation": ""
+      "translation": "Слово Света: Наказание оглушает поражённых обычных врагов на 1 сек. Не чаще раза в 6 сек. на врага."
     },
     {
       "table": "bonk_mastery",
@@ -11689,7 +11689,7 @@
       "column": "description",
       "id": 50228,
       "english": "Renew's overhealing becomes a Shield, up to 5% of your maximum health.",
-      "translation": ""
+      "translation": "Избыточное исцеление от Обновления создаёт щит величиной до 5% максимального здоровья."
     },
     {
       "table": "bonk_mastery",
@@ -11731,7 +11731,7 @@
       "column": "description",
       "id": 50231,
       "english": "While you are at full health, you deal 10% more damage.",
-      "translation": ""
+      "translation": "При полном здоровье ваш урон повышен на 10%."
     },
     {
       "table": "bonk_mastery",
@@ -11787,7 +11787,7 @@
       "column": "description",
       "id": 50302,
       "english": "Shadow Word: Pain afflicts 1 additional enemy.",
-      "translation": ""
+      "translation": "Слово Тьмы: Боль поражает ещё одного врага."
     },
     {
       "table": "bonk_mastery",
@@ -11829,7 +11829,7 @@
       "column": "description",
       "id": 50305,
       "english": "Increases the radius of Mind Blast's shatter by 2 yards.",
-      "translation": ""
+      "translation": "Радиус взрыва Взрыва разума увеличен на 2 м."
     },
     {
       "table": "bonk_mastery",
@@ -11843,7 +11843,7 @@
       "column": "description",
       "id": 50306,
       "english": "When an enemy hits you, you cast Mind Blast. Once every 6 sec. Can't be learned with Blackout.",
-      "translation": ""
+      "translation": "Когда враг атакует вас, вы применяете Взрыв разума. Не чаще раза в 6 сек. Несовместимо с «Затемнением»."
     },
     {
       "table": "bonk_mastery",
@@ -11871,7 +11871,7 @@
       "column": "description",
       "id": 50308,
       "english": "When a decaying enemy dies, its Decay spreads to 1 additional nearby enemy.",
-      "translation": ""
+      "translation": "Когда враг под действием Разложения погибает, его Разложение переходит на ещё одного ближайшего врага."
     },
     {
       "table": "bonk_mastery",
@@ -11885,7 +11885,7 @@
       "column": "description",
       "id": 50310,
       "english": "Your Decay deals 30% more damage, and your spells apply 1 additional stack of Decay.",
-      "translation": ""
+      "translation": "Разложение наносит на 30% больше урона, а ваши заклинания накладывают на 1 эффект Разложения больше."
     },
     {
       "table": "bonk_mastery",
@@ -12011,7 +12011,7 @@
       "column": "description",
       "id": 50327,
       "english": "Mind Blast copies up to 15 stacks of Decay instead of 10.",
-      "translation": ""
+      "translation": "Взрыв разума копирует до 15 эффектов Разложения вместо 10."
     },
     {
       "table": "bonk_mastery",
@@ -12039,7 +12039,7 @@
       "column": "description",
       "id": 50329,
       "english": "When Mind Flay kills its target, the cooldown of Mind Blast resets.",
-      "translation": ""
+      "translation": "Если Пытка разума убивает цель, перезарядка Взрыва разума сбрасывается."
     },
     {
       "table": "bonk_mastery",
@@ -12067,7 +12067,7 @@
       "column": "description",
       "id": 50331,
       "english": "Each decaying enemy within 20 yards gives you +1% Power, up to 10%.",
-      "translation": ""
+      "translation": "Каждый враг с Разложением в радиусе 20 м даёт +1% к силе, максимум +10%."
     },
     {
       "table": "bonk_mastery",
@@ -12095,7 +12095,7 @@
       "column": "description",
       "id": 50333,
       "english": "Mind Blast stuns normal enemies it hits for 1 sec. Once per enemy every 6 sec.",
-      "translation": ""
+      "translation": "Взрыв разума оглушает поражённых обычных врагов на 1 сек. Не чаще раза в 6 сек. на врага."
     },
     {
       "table": "bonk_mastery",
