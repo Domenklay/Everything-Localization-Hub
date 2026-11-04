@@ -1,7 +1,7 @@
 ## Interface: 11200
-## Title: HordesRU — Русификация (v1.4)
+## Title: HordesRU — Русификация (v1.4.1)
 ## Notes: Russian localization overlay for Hordes of Azeroth 0.6.x, preserves original game files.
-## Version: 1.4
+## Version: 1.4.1
 ## OptionalDeps: HordesOfAzeroth
 ## SavedVariables: HordesRU_Options HordesRU_Untranslated
 HordesRU.lua
