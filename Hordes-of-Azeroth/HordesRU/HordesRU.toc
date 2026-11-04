@@ -1,8 +1,8 @@
 ## Interface: 11200
-## Title: HordesRU — Русификация (v1.0)
-## Notes: Standalone Russian client-side localization of Hordes of Azeroth.
+## Title: HordesRU — Русификация (v1.2)
+## Notes: Standalone Russian localization for Hordes of Azeroth 0.6.x; no original files modified.
 ## Author: Community translation
-## Version: 1.0
+## Version: 1.2
 ## OptionalDeps: HordesOfAzeroth
-## SavedVariables: HordesRU_Options
+## SavedVariables: HordesRU_Options HordesRU_Untranslated
 HordesRU.lua
