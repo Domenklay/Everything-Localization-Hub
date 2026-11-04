@@ -7139,7 +7139,7 @@
       "column": "description",
       "id": 10106,
       "english": "Cleave applies Bleed to every enemy it hits. Can't be learned with Sudden Death.",
-      "translation": ""
+      "translation": "Рассекающий удар накладывает кровотечение на всех поражённых врагов. Несовместимо с талантом «Внезапная смерть»."
     },
     {
       "table": "bonk_mastery",
@@ -7307,7 +7307,7 @@
       "column": "description",
       "id": 10124,
       "english": "Deep Wounds can wound each enemy 50% more often.",
-      "translation": ""
+      "translation": "Глубокие раны могут наносить урон одной цели на 50% чаще."
     },
     {
       "table": "bonk_mastery",
@@ -7461,7 +7461,7 @@
       "column": "description",
       "id": 10205,
       "english": "Enrage grants 5% more Haste.",
-      "translation": ""
+      "translation": "Исступление дополнительно повышает скорость атак на 5%."
     },
     {
       "table": "bonk_mastery",
@@ -7475,7 +7475,7 @@
       "column": "description",
       "id": 10206,
       "english": "+15% damage while Enraged. Can't be learned with Improved Execute.",
-      "translation": ""
+      "translation": "Пока действует исступление, ваш урон повышен на 15%. Несовместимо с «Улучшенным добиванием»."
     },
     {
       "table": "bonk_mastery",
@@ -7489,7 +7489,7 @@
       "column": "description",
       "id": 10207,
       "english": "Execute kills normal enemies below 25% health, up from 20%. Can't be learned with Death Wish.",
-      "translation": ""
+      "translation": "Добивание мгновенно убивает обычных врагов с запасом здоровья ниже 25% вместо 20%. Несовместимо с «Жаждой смерти»."
     },
     {
       "table": "bonk_mastery",
@@ -7643,7 +7643,7 @@
       "column": "description",
       "id": 10224,
       "english": "Bloodthirst heals 0.2% more of your maximum health per enemy hit.",
-      "translation": ""
+      "translation": "Кровожадность восстанавливает на 0,2% максимального здоровья больше за каждую поражённую цель."
     },
     {
       "table": "bonk_mastery",
@@ -7657,7 +7657,7 @@
       "column": "description",
       "id": 10225,
       "english": "Bloodthirst always critically strikes enemies above 90% health.",
-      "translation": ""
+      "translation": "Кровожадность всегда наносит критический удар врагам с запасом здоровья выше 90%."
     },
     {
       "table": "bonk_mastery",
@@ -7671,7 +7671,7 @@
       "column": "description",
       "id": 10226,
       "english": "Whirlwind spins 3 times while you are Enraged.",
-      "translation": ""
+      "translation": "Во время исступления Вихрь выполняет 3 вращения."
     },
     {
       "table": "bonk_mastery",
@@ -7699,7 +7699,7 @@
       "column": "description",
       "id": 10228,
       "english": "Execute deals quadruple damage to elites and bosses below 20% health.",
-      "translation": ""
+      "translation": "Добивание наносит четырёхкратный урон элитным врагам и боссам с запасом здоровья ниже 20%."
     },
     {
       "table": "bonk_mastery",
@@ -7727,7 +7727,7 @@
       "column": "description",
       "id": 10230,
       "english": "While Enraged, your critical strikes deal 20% more damage.",
-      "translation": ""
+      "translation": "Во время исступления урон ваших критических ударов повышен на 20%."
     },
     {
       "table": "bonk_mastery",
@@ -7783,7 +7783,7 @@
       "column": "description",
       "id": 10304,
       "english": "Shield Block grants 2% more of your maximum health as Shield.",
-      "translation": ""
+      "translation": "Блок щитом создаёт дополнительный щит величиной 2% от максимального здоровья."
     },
     {
       "table": "bonk_mastery",
@@ -7825,7 +7825,7 @@
       "column": "description",
       "id": 10307,
       "english": "Once per stage, dropping below 20% health grants a Shield of 30% of your maximum health. Can't be learned with Improved Revenge.",
-      "translation": ""
+      "translation": "Раз за этап, когда здоровье падает ниже 20%, вы получаете щит величиной 30% максимального здоровья. Несовместимо с «Улучшенным реваншем»."
     },
     {
       "table": "bonk_mastery",
@@ -7867,7 +7867,7 @@
       "column": "description",
       "id": 10310,
       "english": "Shield Block's Shield holds up to 100% of your maximum health instead of 50% and regenerates 10% of your maximum health per sec, even while you are hit. While your Shield is above half, you deal 20% more damage.",
-      "translation": ""
+      "translation": "Щит от «Блока щитом» может поглощать урон до 100% максимального здоровья вместо 50% и восстанавливается на 10% максимального здоровья в секунду даже под ударами. Пока щит заполнен более чем наполовину, ваш урон повышен на 20%."
     },
     {
       "table": "bonk_mastery",
@@ -7923,7 +7923,7 @@
       "column": "description",
       "id": 10314,
       "english": "Each enemy Thunder Clap hits gives you a Shield of 1% of your maximum health, up to 5% per cast.",
-      "translation": ""
+      "translation": "За каждого врага, поражённого Ударом грома, вы получаете щит величиной 1% максимального здоровья, не более 5% за применение."
     },
     {
       "table": "bonk_mastery",
@@ -8035,7 +8035,7 @@
       "column": "description",
       "id": 10328,
       "english": "While your Shield holds at least 30% of your maximum health, you deal 10% more damage.",
-      "translation": ""
+      "translation": "Пока ваш щит содержит хотя бы 30% максимального здоровья, вы наносите на 10% больше урона."
     },
     {
       "table": "bonk_mastery",
@@ -8049,7 +8049,7 @@
       "column": "description",
       "id": 10329,
       "english": "Thunder Clap strikes twice.",
-      "translation": ""
+      "translation": "Удар грома поражает врагов дважды."
     },
     {
       "table": "bonk_mastery",
@@ -8133,7 +8133,7 @@
       "column": "description",
       "id": 20106,
       "english": "Light's Hammer drops 1 additional hammer. Can't be learned with Holy Guidance.",
-      "translation": ""
+      "translation": "Молот Света призывает на один дополнительный молот больше. Несовместимо со «Священным наставлением»."
     },
     {
       "table": "bonk_mastery",
@@ -8189,7 +8189,7 @@
       "column": "description",
       "id": 20110,
       "english": "Exorcism strikes 2 additional enemies, and critical strikes can reset its cooldown once every 0.5 sec.",
-      "translation": ""
+      "translation": "Экзорцизм поражает ещё 2 цели. Критические удары могут сбрасывать его перезарядку не чаще раза в 0,5 сек."
     },
     {
       "table": "bonk_mastery",
@@ -8273,7 +8273,7 @@
       "column": "description",
       "id": 20122,
       "english": "Increases the radius of Crusader Strike's splash by 2 yards.",
-      "translation": ""
+      "translation": "Радиус поражения «Удара воина Света» увеличен на 2 м."
     },
     {
       "table": "bonk_mastery",
@@ -8287,7 +8287,7 @@
       "column": "description",
       "id": 20123,
       "english": "Increases the radius of Light's Hammer's blasts by 10%.",
-      "translation": ""
+      "translation": "Радиус взрывов Молота Света увеличен на 10%."
     },
     {
       "table": "bonk_mastery",
@@ -8343,7 +8343,7 @@
       "column": "description",
       "id": 20127,
       "english": "Enemies struck by Light's Hammer take 8% more damage from you for 4 sec.",
-      "translation": ""
+      "translation": "Враги, поражённые Молотом Света, получают от вас на 8% больше урона в течение 4 сек."
     },
     {
       "table": "bonk_mastery",
@@ -8371,7 +8371,7 @@
       "column": "description",
       "id": 20129,
       "english": "Light's Hammer has a 20% chance to reset its cooldown when cast.",
-      "translation": ""
+      "translation": "При применении Молота Света есть 20% шанс сбросить его перезарядку."
     },
     {
       "table": "bonk_mastery",
@@ -8399,7 +8399,7 @@
       "column": "description",
       "id": 20131,
       "english": "Each Holy spell gives +1% Haste for 6 sec, stacking up to 5 times.",
-      "translation": ""
+      "translation": "Каждое заклинание Света даёт +1% к скорости на 6 сек. Суммируется до 5 раз."
     },
     {
       "table": "bonk_mastery",
@@ -8497,7 +8497,7 @@
       "column": "description",
       "id": 20207,
       "english": "Once per stage, dropping below 20% health grants a Shield of 30% of your maximum health. Can't be learned with Improved Divine Shield.",
-      "translation": ""
+      "translation": "Раз за этап, когда здоровье падает ниже 20%, вы получаете щит величиной 30% максимального здоровья. Несовместимо с «Улучшенным божественным щитом»."
     },
     {
       "table": "bonk_mastery",
@@ -8553,7 +8553,7 @@
       "column": "description",
       "id": 20211,
       "english": "Enemies standing in your Consecration take your Retribution Aura's damage every second, at half strength.",
-      "translation": ""
+      "translation": "Враги внутри вашего Освящения каждую секунду получают половину урона от вашей Ауры воздаяния."
     },
     {
       "table": "bonk_mastery",
@@ -8623,7 +8623,7 @@
       "column": "description",
       "id": 20222,
       "english": "Retribution Aura slows normal enemies that strike you by 20% for 2 sec.",
-      "translation": ""
+      "translation": "Аура воздаяния замедляет атаковавших вас обычных врагов на 20% на 2 сек."
     },
     {
       "table": "bonk_mastery",
@@ -8707,7 +8707,7 @@
       "column": "description",
       "id": 20228,
       "english": "Each enemy within 10 yards gives you +1% Power, up to 10%.",
-      "translation": ""
+      "translation": "Каждый враг в радиусе 10 м даёт вам +1% к силе, максимум +10%."
     },
     {
       "table": "bonk_mastery",
@@ -8973,7 +8973,7 @@
       "column": "description",
       "id": 20325,
       "english": "Judgement critical strikes reset the cooldown of Avenger's Shield.",
-      "translation": ""
+      "translation": "Критические удары Правосудия сбрасывают перезарядку Щита мстителя."
     },
     {
       "table": "bonk_mastery",
@@ -8987,7 +8987,7 @@
       "column": "description",
       "id": 20326,
       "english": "Righteous Verdict also triggers on Divine Storm critical strikes.",
-      "translation": ""
+      "translation": "Праведный приговор также срабатывает при критических ударах Божественной бури."
     },
     {
       "table": "bonk_mastery",
@@ -9001,7 +9001,7 @@
       "column": "description",
       "id": 20327,
       "english": "Judgement critical strikes set off Seal of Command's burst on their target.",
-      "translation": ""
+      "translation": "Критические удары Правосудия вызывают взрыв Печати повиновения на цели."
     },
     {
       "table": "bonk_mastery",
@@ -9015,7 +9015,7 @@
       "column": "description",
       "id": 20328,
       "english": "Each Seal of Command hit has a 20% chance to reset the cooldown of Divine Storm.",
-      "translation": ""
+      "translation": "Каждое попадание Печати повиновения с вероятностью 20% сбрасывает перезарядку Божественной бури."
     },
     {
       "table": "bonk_mastery",
@@ -9043,7 +9043,7 @@
       "column": "description",
       "id": 20330,
       "english": "Each Retribution spell gives +1% Haste for 6 sec, stacking up to 10 times.",
-      "translation": ""
+      "translation": "Каждое заклинание Воздаяния даёт +1% к скорости на 6 сек. Суммируется до 10 раз."
     },
     {
       "table": "bonk_mastery",
@@ -9071,7 +9071,7 @@
       "column": "description",
       "id": 20332,
       "english": "Judgement slows normal enemies it hits by 50% for 2 sec.",
-      "translation": ""
+      "translation": "Правосудие замедляет поражённых обычных врагов на 50% на 2 сек."
     },
     {
       "table": "bonk_mastery",
@@ -9085,7 +9085,7 @@
       "column": "description",
       "id": 30101,
       "english": "Call Pet and Pack Leader deal 5% more damage.",
-      "translation": ""
+      "translation": "Урон «Призыва питомца» и «Вожака стаи» повышен на 5%."
     },
     {
       "table": "bonk_mastery",
@@ -9155,7 +9155,7 @@
       "column": "description",
       "id": 30106,
       "english": "Pack Leader's howls heal you for 3% of your maximum health. Can't be learned with The Beast Within.",
-      "translation": ""
+      "translation": "Вой Вожака стаи восстанавливает вам 3% максимального здоровья. Несовместимо со «Зверем внутри»."
     },
     {
       "table": "bonk_mastery",
@@ -9169,7 +9169,7 @@
       "column": "description",
       "id": 30107,
       "english": "+15% damage while Pack Leader's howl has your pets frenzied. Can't be learned with Spirit Bond.",
-      "translation": ""
+      "translation": "Пока вой Вожака стаи приводит питомцев в бешенство, ваш урон повышен на 15%. Несовместимо с «Духовной связью»."
     },
     {
       "table": "bonk_mastery",
@@ -9519,7 +9519,7 @@
       "column": "description",
       "id": 30208,
       "english": "+3% critical strike chance against Marked enemies.",
-      "translation": ""
+      "translation": "Шанс критического удара по помеченным врагам повышен на 3%."
     },
     {
       "table": "bonk_mastery",
@@ -9729,7 +9729,7 @@
       "column": "description",
       "id": 30230,
       "english": "Aimed Shot kills normal enemies below 15% health.",
-      "translation": ""
+      "translation": "Прицельный выстрел мгновенно убивает обычных врагов с запасом здоровья ниже 15%."
     },
     {
       "table": "bonk_mastery",
@@ -9813,7 +9813,7 @@
       "column": "description",
       "id": 30305,
       "english": "Explosive Trap fire and Viper Trap poison clouds last 15% longer.",
-      "translation": ""
+      "translation": "Огонь Взрывной ловушки и ядовитые облака Ловушки гадюк действуют на 15% дольше."
     },
     {
       "table": "bonk_mastery",
@@ -9827,7 +9827,7 @@
       "column": "description",
       "id": 30306,
       "english": "Viper Trap's vipers freeze the normal enemies they reach. Once per enemy every 6 sec. Can't be learned with Counterattack.",
-      "translation": ""
+      "translation": "Гадюки из Ловушки гадюк замораживают обычных врагов при достижении цели. Не чаще раза в 6 сек. на врага. Несовместимо с «Контратакой»."
     },
     {
       "table": "bonk_mastery",
@@ -9841,7 +9841,7 @@
       "column": "description",
       "id": 30307,
       "english": "When an enemy hits you, you drop an Explosive Trap at your feet. Once every 5 sec. Can't be learned with Entrapment.",
-      "translation": ""
+      "translation": "Когда враг наносит вам удар, под вами появляется Взрывная ловушка. Не чаще раза в 5 сек. Несовместимо с «Попаданием в ловушку»."
     },
     {
       "table": "bonk_mastery",
@@ -9883,7 +9883,7 @@
       "column": "description",
       "id": 30310,
       "english": "Each dash leaves one of each of your traps behind, already armed. Reduces the cooldown of your dash by 30%.",
-      "translation": ""
+      "translation": "Каждый рывок оставляет после вас по одной взведённой ловушке каждого доступного вида. Перезарядка рывка сокращается на 30%."
     },
     {
       "table": "bonk_mastery",
@@ -9925,7 +9925,7 @@
       "column": "description",
       "id": 30321,
       "english": "Serpent Sting stings 1 additional enemy.",
-      "translation": ""
+      "translation": "Укус змеи поражает ещё одного врага."
     },
     {
       "table": "bonk_mastery",
@@ -9939,7 +9939,7 @@
       "column": "description",
       "id": 30322,
       "english": "Increases the radius of Viper Trap's poison clouds by 30%.",
-      "translation": ""
+      "translation": "Радиус ядовитых облаков Ловушки гадюк увеличен на 30%."
     },
     {
       "table": "bonk_mastery",
@@ -10023,7 +10023,7 @@
       "column": "description",
       "id": 30328,
       "english": "Increases the radius of Explosive Trap's explosion by 30%.",
-      "translation": ""
+      "translation": "Радиус взрыва Взрывной ловушки увеличен на 30%."
     },
     {
       "table": "bonk_mastery",
@@ -10065,7 +10065,7 @@
       "column": "description",
       "id": 30331,
       "english": "Viper Trap's poison clouds last 3 sec longer.",
-      "translation": ""
+      "translation": "Ядовитые облака Ловушки гадюк действуют на 3 сек. дольше."
     },
     {
       "table": "bonk_mastery",
