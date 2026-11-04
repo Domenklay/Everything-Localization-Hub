@@ -1,5 +1,7 @@
 # Hordes of Azeroth — HordesRU 1.11
 
+**[Скачать готовый HordesRU 1.11 одним архивом](releases/HordesRU_v1.11_Unified.zip)** — распаковать в корень игры; в архиве только один аддон и инструкция.
+
 **Единый русский аддон** для Hordes of Azeroth 0.6.x (клиент WoW 1.12.1 enUS, интерфейс 11200). Сборка объединяет HordesRU 1.7 и HordesRU Expansion 1.10 с исправлением шрифта.
 
 ## Установка
