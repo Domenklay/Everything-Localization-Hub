@@ -6187,7 +6187,7 @@
       "column": "description",
       "id": 1,
       "english": "Slows the enemy by 3% per stack, up to 30%. At 10 stacks the enemy becomes Frozen. An enemy that can't be Frozen yet stays at 10 stacks. Each new stack refreshes Chill to 4 sec.",
-      "translation": ""
+      "translation": "Каждый эффект замедляет врага на 3% (до 30%). При 10 эффектах враг замораживается. Если заморозка пока невозможна, остаётся 10 эффектов. Новые эффекты обновляют время действия до 4 сек."
     },
     {
       "table": "bonk_keyword",
@@ -6201,7 +6201,7 @@
       "column": "description",
       "id": 2,
       "english": "Normal enemies are frozen in place for 2 sec. Elites and bosses keep moving but count as Frozen for those 2 sec. Shatter: your Frost spells always critically strike Frozen enemies, and every critical strike against a Frozen enemy deals an extra 50% damage. After a Freeze, that enemy can't be Frozen again for 6 sec.",
-      "translation": ""
+      "translation": "Обычные враги обездвижены на 2 сек. Элиты и боссы продолжают двигаться, но считаются замороженными. Ледяные заклинания всегда критуют по замороженным целям, а любые критические удары наносят им на 50% больше урона. Повторная заморозка возможна через 6 сек."
     },
     {
       "table": "bonk_keyword",
@@ -6229,7 +6229,7 @@
       "column": "description",
       "id": 4,
       "english": "Each stack deals Physical damage every tick. Each new stack refreshes all stacks to their full duration, up to 30 stacks. When a bleeding enemy dies, half of its stacks spread to the 2 nearest enemies within 8 yards, and the damage its stacks had left bursts onto up to 4 enemies within 8 yards, half on each.",
-      "translation": ""
+      "translation": "Каждый эффект периодически наносит физический урон. Новые эффекты обновляют длительность всех предыдущих (до 30). После гибели цели половина эффектов переходит к двум ближайшим врагам в радиусе 8 ярдов, а оставшийся урон поражает до четырёх врагов в этом радиусе (по половине каждому)."
     },
     {
       "table": "bonk_keyword",
@@ -6243,7 +6243,7 @@
       "column": "description",
       "id": 5,
       "english": "Each stack deals Nature damage every tick. Each new stack refreshes all stacks to their full duration, up to 30 stacks. When a poisoned enemy dies, half of its stacks spread to the 2 nearest enemies within 8 yards, and the damage its stacks had left bursts onto up to 4 enemies within 8 yards, half on each.",
-      "translation": ""
+      "translation": "Каждый эффект периодически наносит урон природой. Новые эффекты обновляют длительность всех предыдущих (до 30). После гибели цели половина эффектов переходит к двум ближайшим врагам в радиусе 8 ярдов, а оставшийся урон поражает до четырёх врагов в этом радиусе (по половине каждому)."
     },
     {
       "table": "bonk_keyword",
@@ -6257,7 +6257,7 @@
       "column": "description",
       "id": 6,
       "english": "Increases Fire damage taken by 3% per stack. Stacks up to 5 times.",
-      "translation": ""
+      "translation": "Повышает получаемый урон огнём на 3% за эффект. До 5 эффектов."
     },
     {
       "table": "bonk_keyword",
@@ -6271,7 +6271,7 @@
       "column": "description",
       "id": 7,
       "english": "Increases Physical damage taken by 4% per stack. Stacks up to 5 times.",
-      "translation": ""
+      "translation": "Повышает получаемый физический урон на 4% за эффект. До 5 эффектов."
     },
     {
       "table": "bonk_keyword",
@@ -6285,7 +6285,7 @@
       "column": "description",
       "id": 8,
       "english": "Increases Shadow damage taken by 3% per stack. Stacks up to 5 times.",
-      "translation": ""
+      "translation": "Повышает получаемый урон тьмой на 3% за эффект. До 5 эффектов."
     },
     {
       "table": "bonk_keyword",
@@ -6313,7 +6313,7 @@
       "column": "description",
       "id": 10,
       "english": "Slows the enemy by 30% for 4 sec.",
-      "translation": ""
+      "translation": "Замедляет врага на 30% на 4 сек."
     },
     {
       "table": "bonk_keyword",
@@ -6327,7 +6327,7 @@
       "column": "description",
       "id": 11,
       "english": "Stacks up to 5 times. At 5 stacks, the enemy is struck by lightning, dealing Nature damage to it and up to 3 enemies within 6 yards, and the stacks reset.",
-      "translation": ""
+      "translation": "Накапливается до 5 эффектов. При пяти цель поражает молния: урон природой получает она и ещё до трёх врагов в радиусе 6 ярдов. Затем эффекты сбрасываются."
     },
     {
       "table": "bonk_keyword",
@@ -6341,7 +6341,7 @@
       "column": "description",
       "id": 12,
       "english": "Increases Nature damage taken by 4% per stack. Stacks up to 5 times.",
-      "translation": ""
+      "translation": "Повышает получаемый урон природой на 4% за эффект. До 5 эффектов."
     },
     {
       "table": "bonk_keyword",
@@ -6355,7 +6355,7 @@
       "column": "description",
       "id": 13,
       "english": "Each stack deals Shadow damage every tick. Each new stack refreshes all stacks to their full duration, up to 30 stacks. When a decaying enemy dies, half of its stacks spread to the 2 nearest enemies within 8 yards.",
-      "translation": ""
+      "translation": "Каждый эффект периодически наносит урон тьмой. Новые эффекты обновляют длительность всех предыдущих (до 30). После гибели цели половина эффектов переходит к двум ближайшим врагам в радиусе 8 ярдов."
     },
     {
       "table": "bonk_keyword",
@@ -6369,7 +6369,7 @@
       "column": "description",
       "id": 14,
       "english": "Each stack deals Shadow damage every tick. A stack's damage grows by a quarter of its starting damage every tick it stays on, up to triple after 8 ticks. One curse per enemy.",
-      "translation": ""
+      "translation": "Каждый эффект периодически наносит урон тьмой. С каждым срабатыванием его урон растёт на 25% от исходного (до тройного урона после восьми срабатываний). На враге может быть только одно проклятие."
     },
     {
       "table": "bonk_keyword",
@@ -6383,7 +6383,7 @@
       "column": "description",
       "id": 15,
       "english": "Each stack deals Arcane damage every tick. Each new stack refreshes all stacks to their full duration, up to 30 stacks. When a moonfired enemy dies, half of its stacks spread to the 2 nearest enemies within 8 yards.",
-      "translation": ""
+      "translation": "Каждый эффект периодически наносит урон тайной магией. Новые эффекты обновляют длительность всех предыдущих (до 30). После гибели цели половина эффектов переходит к двум ближайшим врагам в радиусе 8 ярдов."
     },
     {
       "table": "bonk_keyword",
