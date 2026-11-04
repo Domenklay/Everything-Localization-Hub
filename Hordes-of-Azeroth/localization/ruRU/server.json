@@ -12151,7 +12151,7 @@
       "column": "description",
       "id": 70104,
       "english": "Static discharges deal 12% more damage.",
-      "translation": ""
+      "translation": "Разряды статического электричества наносят на 12% больше урона."
     },
     {
       "table": "bonk_mastery",
@@ -12333,7 +12333,7 @@
       "column": "description",
       "id": 70125,
       "english": "Static discharges strike 2 additional nearby enemies.",
-      "translation": ""
+      "translation": "Разряды статического электричества поражают ещё 2 ближайших врагов."
     },
     {
       "table": "bonk_mastery",
@@ -12361,7 +12361,7 @@
       "column": "description",
       "id": 70127,
       "english": "Lightning Bolt critical strikes apply 1 stack of Static.",
-      "translation": ""
+      "translation": "Критические удары Молнии накладывают 1 эффект статического электричества."
     },
     {
       "table": "bonk_mastery",
@@ -12417,7 +12417,7 @@
       "column": "description",
       "id": 70131,
       "english": "Static discharges stun normal enemies for 1 sec. Once per enemy every 6 sec.",
-      "translation": ""
+      "translation": "Разряды статического электричества оглушают обычных врагов на 1 сек. Не чаще раза в 6 сек. на врага."
     },
     {
       "table": "bonk_mastery",
@@ -12431,7 +12431,7 @@
       "column": "description",
       "id": 70132,
       "english": "Each Static discharge gives +1% Haste for 6 sec, stacking up to 10 times.",
-      "translation": ""
+      "translation": "Каждый статический разряд даёт +1% к скорости на 6 сек. Суммируется до 10 раз."
     },
     {
       "table": "bonk_mastery",
@@ -12459,7 +12459,7 @@
       "column": "description",
       "id": 70202,
       "english": "Windfury calls 1 additional swing.",
-      "translation": ""
+      "translation": "Неистовство ветра вызывает ещё один удар."
     },
     {
       "table": "bonk_mastery",
@@ -12487,7 +12487,7 @@
       "column": "description",
       "id": 70204,
       "english": "Each Windfury gives +2% Haste for 4 sec.",
-      "translation": ""
+      "translation": "Каждое срабатывание Неистовства ветра повышает скорость на 2% на 4 сек."
     },
     {
       "table": "bonk_mastery",
@@ -12501,7 +12501,7 @@
       "column": "description",
       "id": 70206,
       "english": "When an enemy hits you, Stormstrike strikes every enemy around you. Once every 6 sec. Can't be learned with Unleashed Rage.",
-      "translation": ""
+      "translation": "Когда враг наносит вам удар, Удар бури поражает всех врагов вокруг вас. Не чаще раза в 6 сек. Несовместимо с «Освобождённой яростью»."
     },
     {
       "table": "bonk_mastery",
@@ -12557,7 +12557,7 @@
       "column": "description",
       "id": 70210,
       "english": "Windfury Weapon triggers Windfury every 2nd swing instead of every 3rd. Maelstrom Weapon needs 2 hits instead of 3.",
-      "translation": ""
+      "translation": "Оружие Неистовства ветра вызывает Неистовство ветра каждым 2-м ударом вместо 3-го. Для Оружия Водоворота нужно 2 попадания вместо 3."
     },
     {
       "table": "bonk_mastery",
@@ -12571,7 +12571,7 @@
       "column": "description",
       "id": 70211,
       "english": "Stormstrike critical strikes trigger Windfury.",
-      "translation": ""
+      "translation": "Критические удары Удара бури вызывают Неистовство ветра."
     },
     {
       "table": "bonk_mastery",
@@ -12683,7 +12683,7 @@
       "column": "description",
       "id": 70225,
       "english": "Your spirit wolves' bites apply 1 stack of Static.",
-      "translation": ""
+      "translation": "Укусы духовных волков накладывают 1 эффект статического электричества."
     },
     {
       "table": "bonk_mastery",
@@ -12711,7 +12711,7 @@
       "column": "description",
       "id": 70227,
       "english": "Maelstrom Weapon's free spell resets the cooldown of Stormstrike.",
-      "translation": ""
+      "translation": "Бесплатное заклинание от Оружия Водоворота сбрасывает перезарядку Удара бури."
     },
     {
       "table": "bonk_mastery",
@@ -12739,7 +12739,7 @@
       "column": "description",
       "id": 70229,
       "english": "Each Windfury gives +2% Power for 8 sec, stacking up to 5 times.",
-      "translation": ""
+      "translation": "Каждое срабатывание Неистовства ветра даёт +2% к силе на 8 сек. Суммируется до 5 раз."
     },
     {
       "table": "bonk_mastery",
@@ -12781,7 +12781,7 @@
       "column": "description",
       "id": 70301,
       "english": "Totemic spells deal 5% more damage.",
-      "translation": ""
+      "translation": "Урон тотемных заклинаний повышен на 5%."
     },
     {
       "table": "bonk_mastery",
@@ -12837,7 +12837,7 @@
       "column": "description",
       "id": 70305,
       "english": "Increases the radius of Magma Totem's pulse by 10%.",
-      "translation": ""
+      "translation": "Радиус импульсов Тотема магмы увеличен на 10%."
     },
     {
       "table": "bonk_mastery",
@@ -12851,7 +12851,7 @@
       "column": "description",
       "id": 70306,
       "english": "Once per stage, dropping below 20% health grants a Shield of 30% of your maximum health. Can't be learned with Lava Flows.",
-      "translation": ""
+      "translation": "Раз за этап, когда здоровье падает ниже 20%, вы получаете щит величиной 30% максимального здоровья. Несовместимо с «Потоками лавы»."
     },
     {
       "table": "bonk_mastery",
@@ -12865,7 +12865,7 @@
       "column": "description",
       "id": 70307,
       "english": "When a Burning enemy dies, its Burning spreads to 1 additional nearby enemy. Can't be learned with Ancestral Fortitude.",
-      "translation": ""
+      "translation": "Когда горящий враг погибает, его горение переходит на ещё одного ближайшего противника. Несовместимо с «Стойкостью предков»."
     },
     {
       "table": "bonk_mastery",
@@ -12949,7 +12949,7 @@
       "column": "description",
       "id": 70313,
       "english": "Totemic spells deal 4% more damage.",
-      "translation": ""
+      "translation": "Урон тотемных заклинаний повышен на 4%."
     },
     {
       "table": "bonk_mastery",
@@ -12991,7 +12991,7 @@
       "column": "description",
       "id": 70322,
       "english": "Magma Totem's pulse applies 1 additional stack of Burning.",
-      "translation": ""
+      "translation": "Импульсы Тотема магмы накладывают ещё 1 эффект горения."
     },
     {
       "table": "bonk_mastery",
@@ -13047,7 +13047,7 @@
       "column": "description",
       "id": 70326,
       "english": "Increases the range of Searing Totem by 25%.",
-      "translation": ""
+      "translation": "Дальность действия Опаляющего тотема увеличена на 25%."
     },
     {
       "table": "bonk_mastery",
@@ -13061,7 +13061,7 @@
       "column": "description",
       "id": 70327,
       "english": "Magma Totem deals 15% more damage.",
-      "translation": ""
+      "translation": "Тотем магмы наносит на 15% больше урона."
     },
     {
       "table": "bonk_mastery",
@@ -13089,7 +13089,7 @@
       "column": "description",
       "id": 70329,
       "english": "Magma Totem's pulse leaves enemies Dazed.",
-      "translation": ""
+      "translation": "Импульсы Тотема магмы вызывают головокружение у врагов."
     },
     {
       "table": "bonk_mastery",
@@ -13103,7 +13103,7 @@
       "column": "description",
       "id": 70330,
       "english": "While you stand within 15 yards of one of your totems, you deal 10% more damage.",
-      "translation": ""
+      "translation": "Находясь в радиусе 15 м от любого своего тотема, вы наносите на 10% больше урона."
     },
     {
       "table": "bonk_mastery",
@@ -13159,7 +13159,7 @@
       "column": "description",
       "id": 80104,
       "english": "Reduces the cooldown of your dash by 10%.",
-      "translation": ""
+      "translation": "Перезарядка вашего рывка сокращается на 10%."
     },
     {
       "table": "bonk_mastery",
@@ -13299,7 +13299,7 @@
       "column": "description",
       "id": 80114,
       "english": "Arcane Missiles' critical strikes also hit 1 nearby enemy.",
-      "translation": ""
+      "translation": "Критические попадания Чародейских стрел поражают ещё одного ближайшего врага."
     },
     {
       "table": "bonk_mastery",
@@ -13341,7 +13341,7 @@
       "column": "description",
       "id": 80123,
       "english": "When Arcane Concentration resets a cooldown, your next spell deals 20% more damage.",
-      "translation": ""
+      "translation": "Когда Чародейская сосредоточенность сбрасывает перезарядку, ваше следующее заклинание наносит на 20% больше урона."
     },
     {
       "table": "bonk_mastery",
@@ -13537,7 +13537,7 @@
       "column": "description",
       "id": 80207,
       "english": "When a Burning enemy dies, its Burning spreads to 1 additional nearby enemy. Can't be learned with Impact.",
-      "translation": ""
+      "translation": "Когда горящий враг погибает, его горение переходит на ещё одного ближайшего противника. Несовместимо с «Столкновением»."
     },
     {
       "table": "bonk_mastery",
@@ -13705,7 +13705,7 @@
       "column": "description",
       "id": 80225,
       "english": "Kindling also reduces the cooldown of Flamestrike by 0.5 sec.",
-      "translation": ""
+      "translation": "Воспламенение также сокращает перезарядку Огненного столба на 0,5 сек."
     },
     {
       "table": "bonk_mastery",
@@ -13747,7 +13747,7 @@
       "column": "description",
       "id": 80228,
       "english": "Increases the radius of Pyroblast's splash by 30%.",
-      "translation": ""
+      "translation": "Радиус поражения Огненной глыбы увеличен на 30%."
     },
     {
       "table": "bonk_mastery",
@@ -13775,7 +13775,7 @@
       "column": "description",
       "id": 80230,
       "english": "Burning stacks up to 40 instead of 30.",
-      "translation": ""
+      "translation": "Горение может суммироваться до 40 эффектов вместо 30."
     },
     {
       "table": "bonk_mastery",
@@ -13873,7 +13873,7 @@
       "column": "description",
       "id": 80306,
       "english": "When an enemy hits you, you cast Frost Nova. Once every 6 sec. Can't be learned with Ice Block.",
-      "translation": ""
+      "translation": "Когда враг наносит вам удар, вы применяете Кольцо льда. Не чаще раза в 6 сек. Несовместимо с «Ледяной глыбой»."
     },
     {
       "table": "bonk_mastery",
@@ -13887,7 +13887,7 @@
       "column": "description",
       "id": 80307,
       "english": "Once per stage, dropping below 20% health encases you in ice: you take no damage for 2 sec, and enemies within 10 yards gain 10 stacks of Chill. Can't be learned with Improved Frost Nova.",
-      "translation": ""
+      "translation": "Раз за этап, когда здоровье падает ниже 20%, вы заключаетесь в лёд: 2 сек. не получаете урона, а враги в радиусе 10 м получают 10 эффектов охлаждения. Несовместимо с «Улучшенным кольцом льда»."
     },
     {
       "table": "bonk_mastery",
@@ -13901,7 +13901,7 @@
       "column": "description",
       "id": 80308,
       "english": "+3% critical strike chance against Chilled enemies.",
-      "translation": ""
+      "translation": "Шанс критического удара по охлаждённым врагам повышен на 3%."
     },
     {
       "table": "bonk_mastery",
@@ -13929,7 +13929,7 @@
       "column": "description",
       "id": 80310,
       "english": "Chill freezes at 4 stacks instead of 10.",
-      "translation": ""
+      "translation": "Охлаждение замораживает цель при 4 эффектах вместо 10."
     },
     {
       "table": "bonk_mastery",
@@ -14055,7 +14055,7 @@
       "column": "description",
       "id": 80327,
       "english": "Frozen enemies gain 3 stacks of Chill when they thaw.",
-      "translation": ""
+      "translation": "После разморозки враги получают 3 эффекта охлаждения."
     },
     {
       "table": "bonk_mastery",
@@ -14069,7 +14069,7 @@
       "column": "description",
       "id": 80328,
       "english": "Frostbolt has a 15% chance to treat its target as Frozen.",
-      "translation": ""
+      "translation": "Ледяная стрела с вероятностью 15% считает цель замороженной."
     },
     {
       "table": "bonk_mastery",
@@ -14097,7 +14097,7 @@
       "column": "description",
       "id": 80330,
       "english": "Blizzard's last pulse Freezes the normal enemies it hits.",
-      "translation": ""
+      "translation": "Последний импульс Снежной бури замораживает поражённых обычных врагов."
     },
     {
       "table": "bonk_mastery",
@@ -14111,7 +14111,7 @@
       "column": "description",
       "id": 80331,
       "english": "Frostbolt has a 20% chance to fire a second bolt.",
-      "translation": ""
+      "translation": "Ледяная стрела с вероятностью 20% выпускает вторую стрелу."
     },
     {
       "table": "bonk_mastery",
@@ -14209,7 +14209,7 @@
       "column": "description",
       "id": 90106,
       "english": "Curse of Agony curses 1 additional enemy. Can't be learned with Siphon Life.",
-      "translation": ""
+      "translation": "Проклятие агонии поражает ещё одного врага. Несовместимо с «Вытягиванием жизни»."
     },
     {
       "table": "bonk_mastery",
@@ -14223,7 +14223,7 @@
       "column": "description",
       "id": 90107,
       "english": "Corruption corrupts 1 additional enemy. Can't be learned with Grim Reach.",
-      "translation": ""
+      "translation": "Порча поражает ещё одного врага. Несовместимо с «Мрачной досягаемостью»."
     },
     {
       "table": "bonk_mastery",
@@ -14377,7 +14377,7 @@
       "column": "description",
       "id": 90124,
       "english": "Drain Life applies 1 stack of Agony to each enemy it drains.",
-      "translation": ""
+      "translation": "Похищение жизни накладывает 1 эффект агонии на каждого поражённого врага."
     },
     {
       "table": "bonk_mastery",
@@ -14447,7 +14447,7 @@
       "column": "description",
       "id": 90129,
       "english": "Corruption also applies 1 stack of Agony.",
-      "translation": ""
+      "translation": "Порча также накладывает 1 эффект агонии."
     },
     {
       "table": "bonk_mastery",
@@ -14461,7 +14461,7 @@
       "column": "description",
       "id": 90130,
       "english": "Curse of Agony slows the normal enemies it curses by 30% for 2 sec.",
-      "translation": ""
+      "translation": "Проклятие агонии замедляет поражённых обычных врагов на 30% на 2 сек."
     },
     {
       "table": "bonk_mastery",
@@ -14475,7 +14475,7 @@
       "column": "description",
       "id": 90131,
       "english": "Each enemy that dies with your Decay or Agony on it gives +1% Haste for 8 sec, stacking up to 10 times.",
-      "translation": ""
+      "translation": "Каждый погибший враг с Разложением или Агонией даёт +1% к скорости на 8 сек. Суммируется до 10 раз."
     },
     {
       "table": "bonk_mastery",
@@ -14503,7 +14503,7 @@
       "column": "description",
       "id": 90202,
       "english": "Imp hurls 1 additional Firebolt in each volley.",
-      "translation": ""
+      "translation": "Бес выпускает на одну Огненную стрелу больше за каждый залп."
     },
     {
       "table": "bonk_mastery",
@@ -14531,7 +14531,7 @@
       "column": "description",
       "id": 90204,
       "english": "Voidwalker bursts after 1 fewer consumed enemy.",
-      "translation": ""
+      "translation": "Демон Бездны взрывается, поглотив на одного врага меньше."
     },
     {
       "table": "bonk_mastery",
@@ -14727,7 +14727,7 @@
       "column": "description",
       "id": 90224,
       "english": "Every 10 sec, your demons deal 30% more damage for 4 sec.",
-      "translation": ""
+      "translation": "Каждые 10 сек. ваши демоны наносят на 30% больше урона в течение 4 сек."
     },
     {
       "table": "bonk_mastery",
@@ -14783,7 +14783,7 @@
       "column": "description",
       "id": 90228,
       "english": "Each different demon you command gives you +3% Power.",
-      "translation": ""
+      "translation": "Каждый отдельный вид подчинённого демона даёт вам +3% к силе."
     },
     {
       "table": "bonk_mastery",
@@ -14797,7 +14797,7 @@
       "column": "description",
       "id": 90229,
       "english": "Voidwalker's burst deals 30% more damage.",
-      "translation": ""
+      "translation": "Взрыв демона Бездны наносит на 30% больше урона."
     },
     {
       "table": "bonk_mastery",
@@ -14811,7 +14811,7 @@
       "column": "description",
       "id": 90230,
       "english": "Voidwalker's burst stuns normal enemies for 1 sec. Once per enemy every 6 sec.",
-      "translation": ""
+      "translation": "Взрыв демона Бездны оглушает обычных врагов на 1 сек. Не чаще раза в 6 сек. на врага."
     },
     {
       "table": "bonk_mastery",
@@ -14839,7 +14839,7 @@
       "column": "description",
       "id": 90302,
       "english": "Shadow Bolt's critical strikes apply Shadow Vulnerability.",
-      "translation": ""
+      "translation": "Критические удары Стрелы Тьмы накладывают уязвимость к Тьме."
     },
     {
       "table": "bonk_mastery",
@@ -15119,7 +15119,7 @@
       "column": "description",
       "id": 90329,
       "english": "Every 5th Shadow Bolt hit applies 3 stacks of Burning.",
-      "translation": ""
+      "translation": "Каждое 5-е попадание Стрелы Тьмы накладывает 3 эффекта горения."
     },
     {
       "table": "bonk_mastery",
@@ -15133,7 +15133,7 @@
       "column": "description",
       "id": 90330,
       "english": "Your critical strikes reduce the cooldown of Rain of Fire by 0.5 sec.",
-      "translation": ""
+      "translation": "Ваши критические удары сокращают перезарядку Огненного дождя на 0,5 сек."
     },
     {
       "table": "bonk_mastery",
@@ -15147,7 +15147,7 @@
       "column": "description",
       "id": 90331,
       "english": "+5% critical strike chance against Burning enemies.",
-      "translation": ""
+      "translation": "Шанс критического удара по горящим врагам повышен на 5%."
     },
     {
       "table": "bonk_mastery",
@@ -15231,7 +15231,7 @@
       "column": "description",
       "id": 110106,
       "english": "Moonfire burns 1 additional enemy. Can't be learned with Gale Winds.",
-      "translation": ""
+      "translation": "Лунный огонь поражает ещё одного врага. Несовместимо с «Шквальными ветрами»."
     },
     {
       "table": "bonk_mastery",
@@ -15371,7 +15371,7 @@
       "column": "description",
       "id": 110122,
       "english": "Starfire applies 3 stacks of Moonfire to its target.",
-      "translation": ""
+      "translation": "Звёздный огонь накладывает 3 эффекта Лунного огня на цель."
     },
     {
       "table": "bonk_mastery",
@@ -15399,7 +15399,7 @@
       "column": "description",
       "id": 110124,
       "english": "Hurricane's Daze lasts 2 sec longer.",
-      "translation": ""
+      "translation": "Головокружение от Урагана длится на 2 сек. дольше."
     },
     {
       "table": "bonk_mastery",
@@ -15455,7 +15455,7 @@
       "column": "description",
       "id": 110128,
       "english": "Each Starfire gives +3% Haste for 8 sec, stacking up to 3 times.",
-      "translation": ""
+      "translation": "Каждый Звёздный огонь даёт +3% к скорости на 8 сек. Суммируется до 3 раз."
     },
     {
       "table": "bonk_mastery",
@@ -15553,7 +15553,7 @@
       "column": "description",
       "id": 110205,
       "english": "Swipe leaves the enemies it hits Dazed.",
-      "translation": ""
+      "translation": "Размах оставляет поражённых врагов ошеломлёнными."
     },
     {
       "table": "bonk_mastery",
@@ -15567,7 +15567,7 @@
       "column": "description",
       "id": 110206,
       "english": "Rake rakes 1 additional enemy. Can't be learned with Feral Instinct.",
-      "translation": ""
+      "translation": "Глубокая рана поражает ещё одного врага. Несовместимо со «Звериным инстинктом»."
     },
     {
       "table": "bonk_mastery",
@@ -15609,7 +15609,7 @@
       "column": "description",
       "id": 110209,
       "english": "Frenzied Regeneration counts up to 7 enemies instead of 5.",
-      "translation": ""
+      "translation": "Бешеное восстановление учитывает до 7 врагов вместо 5."
     },
     {
       "table": "bonk_mastery",
@@ -15637,7 +15637,7 @@
       "column": "description",
       "id": 110212,
       "english": "Shred deals 1% more damage per Bleed stack on its target.",
-      "translation": ""
+      "translation": "Полоснуть наносит на 1% больше урона за каждый эффект кровотечения на цели."
     },
     {
       "table": "bonk_mastery",
@@ -15749,7 +15749,7 @@
       "column": "description",
       "id": 110226,
       "english": "Frenzied Regeneration heals twice as much while you are below 35% health.",
-      "translation": ""
+      "translation": "Бешеное восстановление исцеляет вдвое сильнее при здоровье ниже 35%."
     },
     {
       "table": "bonk_mastery",
@@ -15819,7 +15819,7 @@
       "column": "description",
       "id": 110231,
       "english": "Each Bleeding enemy within 10 yards gives you +1% Power, up to 10%.",
-      "translation": ""
+      "translation": "Каждый истекающий кровью враг в радиусе 10 м даёт +1% к силе, максимум +10%."
     },
     {
       "table": "bonk_mastery",
@@ -15847,7 +15847,7 @@
       "column": "description",
       "id": 110302,
       "english": "Rejuvenation blooms 15% faster.",
-      "translation": ""
+      "translation": "Омоложение срабатывает на 15% быстрее."
     },
     {
       "table": "bonk_mastery",
@@ -15889,7 +15889,7 @@
       "column": "description",
       "id": 110305,
       "english": "Your Treants deal 8% more damage.",
-      "translation": ""
+      "translation": "Ваши древни наносят на 8% больше урона."
     },
     {
       "table": "bonk_mastery",
@@ -15903,7 +15903,7 @@
       "column": "description",
       "id": 110306,
       "english": "Entangling Roots grasp 1 additional enemy. Can't be learned with Wild Growth.",
-      "translation": ""
+      "translation": "Гнев деревьев удерживает ещё одного врага. Несовместимо с «Буйным ростом»."
     },
     {
       "table": "bonk_mastery",
@@ -15917,7 +15917,7 @@
       "column": "description",
       "id": 110307,
       "english": "Rejuvenation lashes 1 additional enemy. Can't be learned with Improved Entangling Roots.",
-      "translation": ""
+      "translation": "Омоложение поражает ещё одного врага. Несовместимо с «Улучшенным гневом деревьев»."
     },
     {
       "table": "bonk_mastery",
@@ -15959,7 +15959,7 @@
       "column": "description",
       "id": 110310,
       "english": "You can't change forms. Your Shapeshift spell keeps attacking, always with Wrath, for 35% less damage. Your other Druid spells deal and heal 15% more for each different talent tree they come from, up to 45%.",
-      "translation": ""
+      "translation": "Вы не можете менять облик. Заклинание «Смена облика» продолжает атаковать, всегда применяя Гнев, но наносит на 35% меньше урона. Другие заклинания друида наносят на 15% больше урона и исцеляют на 15% сильнее за каждую отдельную ветку талантов, к которой они относятся, максимум на 45%."
     },
     {
       "table": "bonk_mastery",
@@ -16043,7 +16043,7 @@
       "column": "description",
       "id": 110322,
       "english": "Tranquility pulses 1 additional time.",
-      "translation": ""
+      "translation": "Спокойствие производит на один импульс больше."
     },
     {
       "table": "bonk_mastery",
@@ -16071,7 +16071,7 @@
       "column": "description",
       "id": 110324,
       "english": "Entangling Roots holds normal enemies 1 sec longer.",
-      "translation": ""
+      "translation": "Гнев деревьев удерживает обычных врагов на 1 сек. дольше."
     },
     {
       "table": "bonk_mastery",
@@ -16099,7 +16099,7 @@
       "column": "description",
       "id": 110326,
       "english": "When a rooted enemy dies, its roots grasp the nearest enemy within 8 yards for 2 sec.",
-      "translation": ""
+      "translation": "Когда удерживаемый корнями враг погибает, корни захватывают ближайшего врага в радиусе 8 м на 2 сек."
     },
     {
       "table": "bonk_mastery",
@@ -16113,7 +16113,7 @@
       "column": "description",
       "id": 110327,
       "english": "Force of Nature summons 1 additional Treant.",
-      "translation": ""
+      "translation": "Сила природы призывает ещё одного древня."
     },
     {
       "table": "bonk_mastery",
@@ -16127,7 +16127,7 @@
       "column": "description",
       "id": 110328,
       "english": "Tranquility's last pulse deals triple damage.",
-      "translation": ""
+      "translation": "Последний импульс Спокойствия наносит тройной урон."
     },
     {
       "table": "bonk_mastery",
@@ -16141,7 +16141,7 @@
       "column": "description",
       "id": 110329,
       "english": "Tranquility slows normal enemies it hits by 30% for 2 sec.",
-      "translation": ""
+      "translation": "Спокойствие замедляет поражённых обычных врагов на 30% на 2 сек."
     },
     {
       "table": "bonk_mastery",
@@ -16155,7 +16155,7 @@
       "column": "description",
       "id": 110330,
       "english": "Each rooted enemy that dies gives +1% Haste for 8 sec, stacking up to 10 times.",
-      "translation": ""
+      "translation": "Каждый погибший враг, удерживаемый корнями, даёт +1% к скорости на 8 сек. Суммируется до 10 раз."
     },
     {
       "table": "bonk_mastery",
