@@ -1,9 +1,9 @@
 ## Interface: 11200
 ## Title: HordesRU - Русский перевод (v1.7)
-## Notes: Russian translation overlay (0.6.x), server talents and keyword glossary.
+## Notes: Complete mastery translations and full available Russian strings.
 ## Version: 1.7
 ## OptionalDeps: HordesOfAzeroth
 ## SavedVariables: HordesRU_Options HordesRU_Untranslated HordesRU_LiveMissing
 HordesRU.lua
 HordesRU_Overlay.lua
-HordesRU_Catalog.lua
+HordesRU_FullData.lua
