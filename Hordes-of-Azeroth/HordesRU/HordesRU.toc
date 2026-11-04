@@ -1,7 +1,7 @@
 ## Interface: 11200
-## Title: HordesRU - Русский перевод (v1.13)
-## Notes: Единая русификация талантов, карт, способностей и интерфейса.
-## Version: 1.13
+## Title: HordesRU - Русский перевод (v1.17 FULL)
+## Notes: Полная установка русского перевода, без патчей и установщиков.
+## Version: 1.17
 ## OptionalDeps: HordesOfAzeroth
 ## SavedVariables: HordesRU_Options HordesRU_Untranslated HordesRU_LiveMissing HordesRU_ExpansionMissing
 HordesRU.lua
@@ -10,3 +10,4 @@ HordesRU_FullData.lua
 HordesRU_Expansion.lua
 HordesRU_Abilities.lua
 HordesRU_Glyphs.lua
+HordesRU_Runtime.lua
