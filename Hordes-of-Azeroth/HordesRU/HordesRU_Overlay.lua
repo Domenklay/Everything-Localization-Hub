@@ -1,4 +1,4 @@
--- HordesRU 1.4 -- supplemental translation adapter for Hordes of Azeroth 0.6.x.
+-- HordesRU 1.4.1 -- supplemental translation adapter for Hordes of Azeroth 0.6.x.
 -- Loads AFTER HordesRU.lua; no WoW.exe, stock game Lua, MPQ or server changes.
 -- Lua 5.0 compatible: no string.match, no modern syntax.
 local T = {
@@ -110,10 +110,10 @@ local function HookSpellTip()
   if not tip then return end
   if type(tip.AddLine)=="function" and tip.AddLine ~= spellLineHook then
     local old = tip.AddLine
-    spellLineHook = function(self, text, ...)
+    spellLineHook = function(self, text, r, g, b)
       local result = Translate(text)
       if result == text then Missing(text) end
-      return old(self, result, ...)
+      return old(self, result, r, g, b)
     end
     tip.AddLine = spellLineHook
   end
@@ -136,15 +136,15 @@ local function HookSpellTip()
   end
   if type(tip.AddSmallLine)=="function" and tip.AddSmallLine ~= spellSmallHook then
     local old = tip.AddSmallLine
-    spellSmallHook = function(self, text, ...)
-      return old(self, Translate(text), ...)
+    spellSmallHook = function(self, text, color)
+      return old(self, Translate(text), color)
     end
     tip.AddSmallLine = spellSmallHook
   end
   if type(tip.AddDoubleLine)=="function" and tip.AddDoubleLine ~= spellDoubleHook then
     local old = tip.AddDoubleLine
-    spellDoubleHook = function(self, left, right, ...)
-      return old(self, Translate(left), Translate(right), ...)
+    spellDoubleHook = function(self, left, right, lr, lg, lb, rr, rg, rb, size)
+      return old(self, Translate(left), Translate(right), lr, lg, lb, rr, rg, rb, size)
     end
     tip.AddDoubleLine = spellDoubleHook
   end
@@ -195,13 +195,13 @@ local function HookGameTip()
   local t = GameTooltip
   if not t or type(t.AddLine) ~= "function" or t.AddLine == gameLineHook then return end
   local old=t.AddLine
-  gameLineHook=function(self,text,...)
+  gameLineHook=function(self,text,r,g,b,wrap)
     if self == GameTooltip and self.GetOwner and UnderHordes(self:GetOwner()) then
       local result=Translate(text)
       if result==text then Missing(text) end
-      return old(self,result,...)
+      return old(self,result,r,g,b,wrap)
     end
-    return old(self,text,...)
+    return old(self,text,r,g,b,wrap)
   end
   t.AddLine=gameLineHook
 end
@@ -218,4 +218,4 @@ end)
 HookSpellTip()
 HookReward()
 HookGameTip()
-if DEFAULT_CHAT_FRAME then DEFAULT_CHAT_FRAME:AddMessage("|cff55ffaa[HordesRU]|r Патч v1.4: подсказки заклинаний и сундуки") end
+if DEFAULT_CHAT_FRAME then DEFAULT_CHAT_FRAME:AddMessage("|cff55ffaa[HordesRU]|r Патч v1.4.1: подсказки заклинаний и сундуки") end
