@@ -3755,3 +3755,58 @@ SlashCmdList["HORDESRU"] = function(message)
         end
     end
 end
+
+
+-- HordesRU v1.5 server talent data hook.
+-- In Hordes 0.6.x the server fills each talent's f[14] name and f[15] description,
+-- then invokes VanillaBonkTalents.ParseNode before the tooltip renders.
+HordesRU_LiveMissing = HordesRU_LiveMissing or {}
+local function HordesRU_V15Translate(text)
+    if type(text) ~= "string" then return text end
+    if text == "Imp hurls 1 additional Firebolt in each volley." then
+        return "Бес выпускает на одну огненную стрелу больше за каждый залп."
+    end
+    if text == "Each different demon you command gives you +3% Power." then
+        return "Каждый вид призванного демона даёт +3% к силе."
+    end
+    local _, _, amount = string.find(text, "^Each different demon you command gives you %+([%d%.]+)%% Power%.?$")
+    if amount then return "Каждый вид призванного демона даёт +" .. amount .. "% к силе." end
+    return TranslateDisplay(text) or text
+end
+local function HordesRU_V15LocalizeNode(node)
+    if type(node) ~= "table" then return end
+    local key = tostring(node.id or "?")
+    if type(node.name) == "string" then
+        local en = node._HordesRU_EnglishName or node.name
+        node._HordesRU_EnglishName = en
+        local ru = HordesRU_V15Translate(en)
+        if ru ~= en then node.name = ru
+        else HordesRU_LiveMissing["talent-name:" .. key] = en end
+    end
+    if type(node.description) == "string" then
+        local en = node._HordesRU_EnglishDescription or node.description
+        node._HordesRU_EnglishDescription = en
+        local ru = HordesRU_V15Translate(en)
+        if ru ~= en then node.description = ru
+        else HordesRU_LiveMissing["talent-description:" .. key] = en end
+    end
+end
+if type(VanillaBonkTalents) == "table" and type(VanillaBonkTalents.ParseNode) == "function"
+    and not HordesRU_V15NodeHooked then
+    HordesRU_V15NodeHooked = true
+    local baseParse = VanillaBonkTalents.ParseNode
+    VanillaBonkTalents.ParseNode = function(node, fields)
+        local result = baseParse(node, fields)
+        HordesRU_V15LocalizeNode(node)
+        return result
+    end
+    if type(VanillaBonkTalents.Show) == "function" then
+        local baseShow = VanillaBonkTalents.Show
+        VanillaBonkTalents.Show = function(shop, data, top)
+            if type(data) == "table" and type(data.nodes) == "table" then
+                for _, node in pairs(data.nodes) do HordesRU_V15LocalizeNode(node) end
+            end
+            return baseShow(shop, data, top)
+        end
+    end
+end
