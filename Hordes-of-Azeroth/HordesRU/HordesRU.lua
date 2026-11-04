@@ -1,4 +1,4 @@
--- HordesRU v0.9 (post-load, safe addon for Hordes of Azeroth 0.6.x)
+-- HordesRU v1.0 (post-load, safe addon for Hordes of Azeroth 0.6.x)
 -- This addon never changes WoW.exe, any original TOC, addon or server file.
 local dict = {
     ["  ·  AoE"] = "  ·  По области",
@@ -1036,18 +1036,253 @@ local v09Strings = {
 }
 for en, ru in pairs(v09Strings) do dict[en] = ru end
 
+-- HordesRU 1.0: fully spelled out Mage talents, server descriptions and compact terminology.
+local v10Strings = {
+    ["10 yard radius"] = "Радиус 10 ярдов",
+    ["10 yd radius"] = "Радиус 10 ярдов",
+    ["A Frozen enemy that dies shatters, dealing Frost damage to enemies within 5 yards."] = "Умирающий замороженный враг взрывается осколками и наносит ледяной урон в радиусе 5 ярдов.",
+    ["Affliction"] = "Колдовство",
+    ["After Arcane Concentration triggers, your next spell deals 20% more damage."] = "После «Чародейской сосредоточенности» следующее заклинание наносит на 20% больше урона.",
+    ["After each Blink, your next 3 spells have 10% more critical strike chance."] = "После «Скачка» следующие 3 заклинания получают +10% к шансу крита.",
+    ["Aftermath"] = "Последствия",
+    ["All your other spells deal 15% less damage."] = "Остальные ваши заклинания наносят на 15% меньше урона.",
+    ["Arcane"] = "Тайная магия",
+    ["Arcane Barrage"] = "Чародейский залп",
+    ["Arcane Concentration"] = "Чародейская сосредоточенность",
+    ["Arcane Echo"] = "Чародейское эхо",
+    ["Arcane Explosion"] = "Чародейский взрыв",
+    ["Arcane Explosion slows normal enemies by 30% for 2 sec"] = "«Чародейский взрыв» замедляет обычных врагов на 30% на 2 сек.",
+    ["Arcane Explosion slows normal enemies by 30% for 2 sec."] = "«Чародейский взрыв» замедляет обычных врагов на 30% на 2 сек.",
+    ["Arcane Focus"] = "Чародейская концентрация",
+    ["Arcane Fortitude"] = "Чародейская стойкость",
+    ["Arcane Instability"] = "Чародейская нестабильность",
+    ["Arcane Meditation"] = "Чародейская медитация",
+    ["Arcane Mind"] = "Чародейский разум",
+    ["Arcane Missiles"] = "Чародейские стрелы",
+    ["Arcane Missiles deals 4% more damage."] = "Урон «Чародейских стрел» увеличен на 4%.",
+    ["Arcane Missiles fires 1 additional missile."] = "«Чародейские стрелы» выпускают ещё один снаряд.",
+    ["Arcane Missiles fires 1 more missile."] = "«Чародейские стрелы» выпускают ещё один снаряд.",
+    ["Arcane Missiles' last missile also hits 2 additional nearby enemies."] = "Последний снаряд «Чародейских стрел» поражает ещё 2 ближайших врагов.",
+    ["Arcane Missiles' last missile also hits 2 nearby enemies"] = "Последний снаряд «Чародейских стрел» поражает ещё 2 ближайших врагов.",
+    ["Arcane Potency"] = "Чародейская мощь",
+    ["Arcane Potency lasts for 5 spells."] = "«Чародейская мощь» действует на 5 заклинаний.",
+    ["Arcane Shield"] = "Чародейский щит",
+    ["Arcane spells deal 10% more damage to Slowed or Chilled enemies."] = "Тайная магия наносит на 10% больше урона замедленным и охлаждённым врагам.",
+    ["Arcane spells deal 2% more damage."] = "Урон тайной магии увеличен на 2%.",
+    ["Arcane spells deal 3% more damage."] = "Урон тайной магии увеличен на 3%.",
+    ["Arcane Subtlety"] = "Тонкая магия",
+    ["Arcane Surge"] = "Чародейский всплеск",
+    ["Arcane Tempo"] = "Чародейский темп",
+    ["Arcane · AoE"] = "Тайная магия · по области",
+    ["Arctic Reach"] = "Арктический предел",
+    ["Armor"] = "Броня",
+    ["Bane"] = "Погибель",
+    ["Blast Wave"] = "Взрывная волна",
+    ["Blasts all enemies within 10 yards of you with arcane energy, dealing Arcane damage."] = "Поражает врагов в радиусе 10 ярдов уроном тайной магии.",
+    ["Blasts all enemies within 10 yards of you with arcane energy, dealing Arcane damage. Also goes off where you land after each Blink."] = "Поражает всех врагов в радиусе 10 ярдов тайной магией. Срабатывает также при приземлении после «Скачка».",
+    ["Blasts all enemies within 10 yards of you with arcane energy, dealing Arcane damage. It also goes off where you land after each Blink."] = "Поражает всех врагов в радиусе 10 ярдов тайной магией. Также срабатывает в точке приземления после «Скачка».",
+    ["Blasts all enemies within 10 yards of you with arcane energy, dealing Arcane damage. It also goes off where you land after each Blink. A blast leaves a time bubble for 10 sec: normal enemies inside move 60% slower, and all enemies inside take 15% more damage. The next blast after it fades leaves a new one."] = "Наносит урон тайной магией врагам в радиусе 10 ярдов и срабатывает после «Скачка». Оставляет на 10 сек. временной пузырь: обычные враги замедлены на 60%, все получают на 15% больше урона. Новый пузырь появляется после исчезновения старого.",
+    ["Blink"] = "Скачок",
+    ["Blizzard"] = "Снежная буря",
+    ["Blizzard applies 2 stacks of Chill each second."] = "«Снежная буря» накладывает 2 эффекта охлаждения в секунду.",
+    ["Blizzard lasts 1 sec longer."] = "«Снежная буря» длится на 1 сек. дольше.",
+    ["Blizzard's last tick Freezes normal enemies"] = "Последний удар «Снежной бури» замораживает обычных врагов.",
+    ["Bone Chilling"] = "Пронизывающий холод",
+    ["Burning Embers"] = "Тлеющие угли",
+    ["Burning lasts 2 sec longer."] = "Горение длится на 2 сек. дольше.",
+    ["Burning Soul"] = "Пылающая душа",
+    ["Burning stacks up to 40 instead of 30"] = "Максимум горения — 40 эффектов вместо 30.",
+    ["Burning: Each stack deals Fire damage every tick. Each new stack refreshes all stacks to their full duration, up to 30 stacks. When a burning enemy dies, half of its stacks spread to the 2 nearest enemies within 8 yards, and the damage its stacks had left bursts onto up to 4 enemies within 8 yards, half on each."] = "Горение: наносит периодический урон огнём, новые стаки обновляют длительность (до 30). После смерти врага половина переносится на двух ближайших, а остаточный урон поражает до четырёх врагов в радиусе 8 ярдов.",
+    ["Can evolve into"] = "Можно улучшить до",
+    ["Can evolve into Fel Imps or Imp Swarm through a Legendary rank, offered at rank 10 or higher."] = "Начиная с 10-го ранга доступна легендарная эволюция: «Бесы Скверны» или «Стая бесов».",
+    ["Can evolve into Slow Time or Presence of Mind through a Legendary rank, offered at rank 10 or higher"] = "На 10-м ранге и выше доступна легендарная эволюция: «Замедление времени» или «Присутствие духа».",
+    ["Can evolve into Slow Time or Presence of Mind through a Legendary rank, offered at rank 10 or higher."] = "На 10-м ранге и выше доступна легендарная эволюция: «Замедление времени» или «Присутствие духа».",
+    ["Chill lasts 1 sec longer."] = "Охлаждение длится на 1 сек. дольше.",
+    ["Clearcasting"] = "Ясность мысли",
+    ["Cold Snap"] = "Холодный щит",
+    ["Conflagration"] = "Пожарище",
+    ["Cooldown"] = "Перезарядка",
+    ["Corruption"] = "Порча",
+    ["Critical Mass"] = "Критическая масса",
+    ["Curse of Agony"] = "Проклятие агонии",
+    ["Damage"] = "Урон",
+    ["Demon Skin"] = "Демоническая кожа",
+    ["Demonic Embrace"] = "Демонические объятия",
+    ["Demonic Sacrifice"] = "Демоническая жертва",
+    ["Demonology"] = "Демонология",
+    ["Destruction"] = "Разрушение",
+    ["Devastation"] = "Опустошение",
+    ["Drain Life"] = "Похищение жизни",
+    ["Each Arcane spell gives +1% Haste for 6 sec, stacking up to 5 times."] = "Каждое заклинание тайной магии даёт +1% скорости на 6 сек. До 5 эффектов.",
+    ["Each Blink gives you a Shield equal to 3% of your maximum health."] = "Каждый «Скачок» даёт щит в размере 3% макс. здоровья.",
+    ["Each Blink grants a Shield of 3% of your maximum health."] = "Каждый «Скачок» даёт щит в размере 3% макс. здоровья.",
+    ["Each Blink reduces the cooldown of all your spells by 1 sec."] = "Каждый «Скачок» сокращает перезарядку всех заклинаний на 1 сек.",
+    ["Each Blink takes 1 sec off all your spell cooldowns."] = "Каждый «Скачок» сокращает перезарядку всех заклинаний на 1 сек.",
+    ["Each different demon you command makes all your demons deal 10% more damage, up to 40%."] = "Каждый вид призванного демона даёт остальным +10% к урону (до 40%).",
+    ["Each stack deals Fire damage every tick. Each new stack refreshes all stacks to their full duration, up to 30 stacks. When a burning enemy dies, half of its stacks spread to the 2 nearest enemies within 8 yards, and the damage its stacks had left bursts onto up to 4 enemies within 8 yards, half on each."] = "Каждый эффект наносит периодический урон огнём. Новые эффекты обновляют все стаки (до 30). После смерти цели половина переходит на двух ближайших врагов, а остаточный урон поражает до четырёх врагов в радиусе 8 ярдов.",
+    ["Emberstorm"] = "Огненная буря",
+    ["Fel Concentration"] = "Средоточие Скверны",
+    ["Fel Imps"] = "Бесы Скверны",
+    ["Fel Intellect"] = "Интеллект Скверны",
+    ["Felhunter"] = "Охотник Скверны",
+    ["Fingers of Frost"] = "Ледяные пальцы",
+    ["Fire"] = "Огонь",
+    ["Fire and Brimstone"] = "Огонь и сера",
+    ["Fire Blast"] = "Огненный взрыв",
+    ["Fire Blast deals 2% more damage per Burning stack on the target."] = "«Огненный взрыв» наносит на 2% больше урона за каждый эффект горения на цели.",
+    ["Fire Blast deals an additional 2% damage for each stack of Burning on the target."] = "«Огненный взрыв» наносит на 2% больше урона за каждый эффект горения на цели.",
+    ["Fire Blast spreads its target's Burning to 2 nearby enemies"] = "«Огненный взрыв» переносит горение на 2 ближайших врагов.",
+    ["Fire Blast spreads its target's Burning to 2 nearby enemies."] = "«Огненный взрыв» переносит горение на 2 ближайших врагов.",
+    ["Fire Blast's first critical strike each cast makes Pyroblast recharge instantly."] = "Первый крит «Огненного взрыва» мгновенно перезаряжает «Огненную глыбу».",
+    ["Fire critical strikes take 0.5 sec off Pyroblast's cooldown."] = "Криты огнём сокращают перезарядку «Огненной глыбы» на 0,5 сек.",
+    ["Fire Power"] = "Сила огня",
+    ["Fire spells deal 3% more damage."] = "Урон огненной магии увеличен на 3%.",
+    ["Fireball"] = "Огненный шар",
+    ["Fireball applies 1 additional stack of Burning."] = "«Огненный шар» добавляет ещё 1 эффект горения.",
+    ["Fireball applies 1 more stack of Burning."] = "«Огненный шар» добавляет ещё 1 эффект горения.",
+    ["Fireball deals 4% more damage."] = "Урон «Огненного шара» увеличен на 4%.",
+    ["Firestarter"] = "Поджигатель",
+    ["Firestorm"] = "Огненная буря",
+    ["Flame Throwing"] = "Дальнее пламя",
+    ["Flamestrike"] = "Огненный столб",
+    ["Free. Arcane Missiles is a starter spell, with Blink as your dash"] = "Бесплатно. «Чародейские стрелы» — начальное заклинание; рывок заменяется «Скачком».",
+    ["Free. Arcane Missiles is a starter spell, with Blink as your dash."] = "Бесплатно. «Чародейские стрелы» — начальное заклинание. Вместо рывка — «Скачок».",
+    ["Free. Arcane Missiles is a starter spell."] = "Бесплатно. «Чародейские стрелы» — начальное заклинание.",
+    ["Free. Fireball is a starter spell."] = "Бесплатно. «Огненный шар» — начальное заклинание.",
+    ["Free. Frostbolt is a starter spell."] = "Бесплатно. «Ледяная стрела» — начальное заклинание.",
+    ["Freezing Winds"] = "Морозные ветра",
+    ["Frost"] = "Лёд",
+    ["Frost Channeling"] = "Ледяной поток",
+    ["Frost Nova"] = "Кольцо льда",
+    ["Frost spells deal 2% more damage."] = "Урон ледяной магии увеличен на 2%.",
+    ["Frost spells deal 3% more damage."] = "Урон ледяной магии увеличен на 3%.",
+    ["Frost Warding"] = "Ледяной оберег",
+    ["Frostbolt"] = "Ледяная стрела",
+    ["Frostbolt applies 1 more stack of Chill."] = "«Ледяная стрела» добавляет ещё 1 эффект охлаждения.",
+    ["Frostbolt deals 10% more damage to Frozen enemies."] = "«Ледяная стрела» наносит на 10% больше урона замороженным врагам.",
+    ["Frostbolt fires a second bolt 20% of the time."] = "«Ледяная стрела» с шансом 20% запускает вторую стрелу.",
+    ["Frostbolt treats its target as Frozen 15% of the time."] = "«Ледяная стрела» с шансом 15% считает цель замороженной.",
+    ["Frozen Core"] = "Ледяное сердце",
+    ["Frozen Touch"] = "Ледяное касание",
+    ["Glacial Fragments"] = "Ледниковые осколки",
+    ["Grim Reach"] = "Мрачный предел",
+    ["Haste"] = "Скорость",
+    ["Hellfire"] = "Адское пламя",
+    ["Hot Streak"] = "Полоса везения",
+    ["Ice Barrier"] = "Ледяная преграда",
+    ["Ice Floes"] = "Льдины",
+    ["Ice Shards"] = "Ледяные осколки",
+    ["Ignite"] = "Воспламенение",
+    ["Immolate applies 1 additional stack of Burning."] = "«Жертвенный огонь» накладывает ещё 1 эффект горения.",
+    ["Imp Swarm"] = "Стая бесов",
+    ["Improved Arcane Explosion"] = "Улучшенный чародейский взрыв",
+    ["Improved Arcane Missiles"] = "Усиленные чародейские стрелы",
+    ["Improved Arcane Potency"] = "Усиленная чародейская мощь",
+    ["Improved Blink"] = "Улучшенный скачок",
+    ["Improved Corruption"] = "Улучшенная порча",
+    ["Improved Curse of Agony"] = "Улучшенная агония",
+    ["Improved Drain Life"] = "Улучшенное похищение жизни",
+    ["Improved Felhunter"] = "Улучшенный охотник Скверны",
+    ["Improved Fire Blast"] = "Улучшенный огненный взрыв",
+    ["Improved Fire Ward"] = "Улучшенный огненный оберег",
+    ["Improved Fireball"] = "Усиленный огненный шар",
+    ["Improved Frost Nova"] = "Улучшенное кольцо льда",
+    ["Improved Frostbolt"] = "Усиленная ледяная стрела",
+    ["Improved Glacial Fragments"] = "Усиленные ледниковые осколки",
+    ["Improved Ice Floes"] = "Усиленные льдины",
+    ["Improved Immolate"] = "Улучшенное жертвенный огонь",
+    ["Improved Imp"] = "Улучшенный бес",
+    ["Improved Kindling"] = "Улучшенная растопка",
+    ["Improved Mana Shield"] = "Улучшенный щит маны",
+    ["Improved Pyroclasm"] = "Усиленный катаклизм",
+    ["Improved Rain of Fire"] = "Улучшенный огненный дождь",
+    ["Improved Shadow Bolt"] = "Усиленная стрела Тьмы",
+    ["Improved Succubus"] = "Улучшенный суккуб",
+    ["Improved Voidwalker"] = "Улучшенный демон Бездны",
+    ["Improved Winter's Chill"] = "Усиленная зимняя стужа",
+    ["Incineration"] = "Испепеление",
+    ["Kindling"] = "Растопка",
+    ["Kindling also takes 0.5 sec off Flamestrike's cooldown."] = "«Растопка» сокращает перезарядку «Огненного столба» на 0,5 сек.",
+    ["Launches 5 Arcane Missiles at the nearest enemy over 1 sec, each dealing Arcane damage. After each Blink, fires all 5 at once at the nearest enemies."] = "За 1 сек. выпускает 5 чародейских стрел в ближайшего врага. Каждая наносит урон тайной магией. После «Скачка» все 5 стрел выпускаются одновременно по ближайшим целям.",
+    ["Launches 5 Arcane Missiles at the nearest enemy over 1 sec, each dealing Arcane damage. After each Blink, it fires all 5 at once. As your starter spell, it turns your dash into Blink."] = "За 1 сек. выпускает 5 чародейских стрел в ближайшего врага. После «Скачка» все 5 вылетают одновременно. Если выбрано начальным заклинанием, рывок превращается в «Скачок».",
+    ["Magic Absorption"] = "Поглощение магии",
+    ["Marked enemies take 15% more damage from you and your summons, raised by the marking spell's ranks and Mark upgrades up to 30%. Talents add on top. When a Marked enemy dies, the Mark passes to the 2 nearest unmarked enemies within 10 yards."] = "Помеченные враги получают на 15% больше урона от вас и призывов (до 30% с улучшениями). Таланты усиливают эффект. После смерти цели метка переходит на двух ближайших врагов в радиусе 10 ярдов.",
+    ["Master Demonologist"] = "Мастер демонологии",
+    ["Master of Elements"] = "Владыка стихий",
+    ["Mastery"] = "Мастерство",
+    ["Missile Barrage"] = "Заградительный огонь",
+    ["Molten Shields"] = "Раскалённые щиты",
+    ["New passive"] = "Новый пассивный эффект",
+    ["New spell"] = "Новое заклинание",
+    ["Nightmare"] = "Кошмар",
+    ["Pandemic"] = "Пандемия",
+    ["Permafrost"] = "Вечная мерзлота",
+    ["Phase Rush"] = "Фазовый рывок",
+    ["Piercing Ice"] = "Пронзающий лёд",
+    ["Power"] = "Сила",
+    ["Presence of Mind"] = "Присутствие духа",
+    ["Prismatic Cloak"] = "Радужный плащ",
+    ["Pyroblast"] = "Огненная глыба",
+    ["Pyroblast's splash applies 1 stack of Burning."] = "Взрыв «Огненной глыбы» накладывает 1 эффект горения.",
+    ["Pyroblast's splash reaches 30% farther."] = "Радиус взрыва «Огненной глыбы» увеличен на 30%.",
+    ["Pyroclasm"] = "Огненный катаклизм",
+    ["Pyromaniac"] = "Пироман",
+    ["Radius"] = "Радиус",
+    ["Rain of Fire"] = "Огненный дождь",
+    ["Regain 0.1% of your health every second."] = "Восстанавливает 0,1% здоровья в секунду.",
+    ["Ruin"] = "Разорение",
+    ["Searing Burst"] = "Опаляющий взрыв",
+    ["Shadow"] = "Тьма",
+    ["Shadow and Flame"] = "Тьма и пламя",
+    ["Shadow Bolt"] = "Стрела Тьмы",
+    ["Shadow Mastery"] = "Владыка теней",
+    ["Shadowburn"] = "Ожог Тьмы",
+    ["Shield"] = "Щит",
+    ["Siphon Life"] = "Поглощение жизни",
+    ["Slow Time"] = "Замедление времени",
+    ["Splintering Cold"] = "Осколки холода",
+    ["Splitting Ice"] = "Расщепляющий лёд",
+    ["Succubus"] = "Суккуб",
+    ["Summons an Imp that hurls 2 Firebolts at a time at enemies within 30 yards, leaving them burning."] = "Призывает беса, бросающего по 2 огненные стрелы в радиусе 30 ярдов. Стрелы поджигают врагов.",
+    ["Summons an Imp that hurls 2 Firebolts at enemies within 30 yards, leaving them burning."] = "Призывает беса, бросающего по 2 огненные стрелы в радиусе 30 ярдов. Стрелы поджигают врагов.",
+    ["Suppression"] = "Подавление",
+    ["Temporal Flux"] = "Поток времени",
+    ["The shards apply 3 stacks of Chill."] = "Осколки накладывают 3 эффекта охлаждения.",
+    ["Torment the Weak"] = "Мучение слабых",
+    ["Unholy Power"] = "Нечестивая сила",
+    ["Voidwalker"] = "Демон Бездны",
+    ["Warlocks can choose it as their starter spell at the Run Master."] = "Чернокнижник может выбрать его начальным заклинанием у распорядителя забегов.",
+    ["Winter's Chill"] = "Зимняя стужа",
+    ["Your Burning deals 8% more damage."] = "Урон горения увеличен на 8%.",
+    ["Your critical strikes deal 10% more damage to Frozen enemies."] = "Криты наносят на 10% больше урона замороженным врагам.",
+    ["Your critical strikes deal 10% more damage."] = "Критические удары наносят на 10% больше урона.",
+    ["Your critical strikes deal 5% more damage."] = "Критические удары наносят на 5% больше урона.",
+    ["Your dash becomes Blink and its cooldown is halved."] = "Рывок превращается в «Скачок»; перезарядка сокращается вдвое.",
+    ["Your dash becomes Blink and its cooldown is halved. Each Blink sets off your Arcane Explosion where you land."] = "Рывок превращается в «Скачок» с перезарядкой вдвое быстрее. При приземлении срабатывает «Чародейский взрыв».",
+    ["Your dash becomes Blink and its cooldown is halved. Each dash sets off your Arcane Explosion where you land. Stacks with the Blink spell."] = "Рывок превращается в «Скачок», а его перезарядка сокращается вдвое. При приземлении срабатывает «Чародейский взрыв». Совмещается с заклинанием «Скачок».",
+    ["Your dash recharges 10% faster."] = "Рывок восстанавливается на 10% быстрее.",
+    ["Your demons deal 10% more damage for each different demon you command, up to 40%."] = "Демоны наносят на 10% больше урона за каждый призванный вид (до 40%).",
+    ["Your shots Mark every enemy they hit and target Marked enemies first. Marked enemies take 30% more damage from you."] = "Каждый выстрел помечает задетых врагов и в первую очередь поражает отмеченные цели. Они получают от вас на 30% больше урона.",
+    ["Your spells have a 2% chance to recharge instantly."] = "Заклинания с шансом 2% мгновенно перезаряжаются.",
+    ["Your spells have a 2% chance to reset their cooldown."] = "Заклинания с шансом 2% мгновенно перезаряжаются.",
+}
+for en, ru in pairs(v10Strings) do dict[en] = ru end
 local FONT_PATHS = {
     kr = "Interface\\AddOns\\HordesOfAzeroth\\Fonts\\NotoSansKR-Regular.otf",
     sc = "Interface\\AddOns\\HordesOfAzeroth\\Fonts\\NotoSansSC-Regular.otf",
 }
 HordesRU_Options = HordesRU_Options or {}
+if HordesRU_Options.fontMigration ~= "1.0" then
+    HordesRU_Options.font = "kr"
+    HordesRU_Options.fontMigration = "1.0"
+end
 local fontChoice = HordesRU_Options.font == "sc" and "sc" or "kr"
 local ruFont = FONT_PATHS[fontChoice]
 local cachedFont = setmetatable({}, { __mode = "k" })
 local styledTalents = setmetatable({}, { __mode = "k" })
-local TALENT_TITLE_SIZE = 10.5
-local TALENT_BODY_SIZE = 9.5
-local TOOLTIP_WRAP_CHARS = 33
+local TALENT_TITLE_SIZE = 10
+local TALENT_BODY_SIZE = 9
+local TOOLTIP_WRAP_CHARS = 37
 
 -- A tooltip line is created before GameTooltip:Show(), so the style must be
 -- established at AddLine time. Changing the font only after Show() caused the
@@ -1132,6 +1367,21 @@ local function TranslateDisplay(text)
     if ban then return "Сундук бесплатный с шансом " .. ban .. "%." end
     local seconds, hp = MatchCaptures(text, "^After ([%d%.]+) sec without being hit, regain ([%d%.]+)%% of your health every second%.?$")
     if seconds then return "После " .. seconds .. " сек. без урона: +" .. hp .. "% здоровья/сек." end
+    -- Variant format when a spell's new evolution is delivered as a separate sentence.
+    local evoA, evoB = MatchCaptures(text, "^Can evolve into (.-) or (.-) through a Legendary rank, offered at rank 10 or higher%.?$")
+    if evoA and evoB then
+        return "С 10-го ранга доступна легендарная эволюция: «" .. (dict[evoA] or evoA) .. "» или «" .. (dict[evoB] or evoB) .. "»."
+    end
+    local freeName = MatchCaptures(text, "^Free%. (.-) is a starter spell%.?$")
+    if freeName then return "Бесплатно. «" .. (dict[freeName] or freeName) .. "» — начальное заклинание." end
+    local initialName = MatchCaptures(text, "^(.-) is a starter spell%.?$")
+    if initialName then return "«" .. (dict[initialName] or initialName) .. "» — начальное заклинание." end
+    local spell, pct = MatchCaptures(text, "^(.-) deals ([%d%.]+)%% more damage%.?$")
+    if spell and dict[spell] then return "Урон «" .. dict[spell] .. "» увеличен на " .. pct .. "%." end
+    local rad = MatchCaptures(text, "^([%d%.]+) yd radius$")
+    if rad then return "Радиус " .. rad .. " ярдов" end
+    local yard = MatchCaptures(text, "^([%d%.]+) yards? range$")
+    if yard then return "Дальность " .. yard .. " ярдов" end
     -- Server descriptions for evolving spell ranks vary between builds.
     local shots = MatchCaptures(text, "^Summons an Imp that hurls ([%d]+) Firebolts at enemies within 30 yards, leaving them burning%.?$")
     if shots then return "Призывает беса, бросающего " .. shots .. " огненные стрелы по врагам в радиусе 30 ярдов. Накладывает горение." end
@@ -1175,8 +1425,62 @@ local function TranslateDisplay(text)
     changed = string.gsub(changed, "(%d+) Talent Points", "%1 очков талантов")
     changed = string.gsub(changed, "(%d+) points to unlock", "%1 очков для открытия")
     if changed ~= text then return changed end
+    if string.find(text, "\n", 1, true) then
+        local out, changed = {}, false
+        local start, pos = 1, 1
+        while true do
+            local first, last = string.find(text, "\n", start, true)
+            if not first then
+                local part = string.sub(text, start)
+                local ru = dict[part]
+                if ru then changed = true end
+                table.insert(out, ru or part)
+                break
+            end
+            local part = string.sub(text, start, first-1)
+            local ru = dict[part]
+            if ru then changed = true end
+            table.insert(out, ru or part)
+            start=last+1
+        end
+        if changed then return table.concat(out, "\n") end
+    end
     -- Never translate unknown UI strings with broad word substitutions:
     -- they may contain server protocol identifiers, player names or WoW tags.
+end
+
+local fontChecked = setmetatable({}, { __mode = "k" })
+local function IsHordesWidget(widget)
+    local node, tries = widget, 0
+    while node and tries < 15 do
+        if type(node.GetName) == "function" then
+            local ok, name = pcall(node.GetName, node)
+            if ok and type(name) == "string" and string.find(name, "VanillaBonk", 1, true) then return true end
+        end
+        if type(node.GetParent) ~= "function" then break end
+        local ok, parent = pcall(node.GetParent, node)
+        if not ok or parent == node then break end
+        node, tries = parent, tries + 1
+    end
+    return false
+end
+local function StyleHordesText(widget)
+    if not widget or fontChecked[widget] == ruFont then return end
+    if not IsHordesWidget(widget) then return end
+    if type(widget.GetFont) ~= "function" or type(widget.SetFont) ~= "function" then return end
+    local ok, old, size = pcall(widget.GetFont, widget)
+    if not ok or not size or size <= 0 then return end
+    -- Reward cards have already been sized by Hordes; do not inflate font sizes.
+    local wanted = size
+    if type(widget.GetWidth) == "function" then
+        local okW, width = pcall(widget.GetWidth, widget)
+        if okW and width and width > 0 and width < 110 then wanted = math.min(size, 10) end
+    end
+    if old ~= ruFont or size ~= wanted then
+        local success, loaded = pcall(widget.SetFont, widget, ruFont, wanted, "")
+        if not success or not loaded then return end
+    end
+    fontChecked[widget] = ruFont
 end
 
 local function TranslateOne(widget)
@@ -1185,6 +1489,7 @@ local function TranslateOne(widget)
     end
     local ok, current = pcall(widget.GetText, widget)
     if not ok or type(current) ~= "string" then return end
+    StyleHordesText(widget)
     local translated = TranslateDisplay(current)
     if not translated or translated == current then return end
     if not cachedFont[widget] and type(widget.GetFont) == "function" and type(widget.SetFont) == "function" then
@@ -1271,6 +1576,8 @@ local function InstallOfferHook()
         -- Original FitCard makes the HTML and calculates text room. This wrapper
         -- preserves its dynamic sizing and updates both measure and rendered fonts.
         local result = oldFitCard(card, translatedOption, width, hasLock)
+        if card.name and card.name.SetFont then pcall(card.name.SetFont, card.name, ruFont, 14, "") end
+        if card.level and card.level.SetFont then pcall(card.level.SetFont, card.level, ruFont, 10, "") end
         if card.name and type(option.name) == "string" then
             local title = TranslateDisplay(option.name)
             if title and title ~= option.name then
@@ -1287,7 +1594,7 @@ local function InstallOfferHook()
         -- sync with the hidden measurement FontString to prevent clipping.
         if translatedOption ~= option and card.measure and card.description then
             local room = card.description.GetHeight and card.description:GetHeight() or 0
-            local size = 11
+            local size = 10
             while size >= 9 do
                 local ok = pcall(card.measure.SetFont, card.measure, ruFont, size, "")
                 if not ok then break end
@@ -1431,7 +1738,7 @@ local announced = false
 local function Announce()
     if not announced and DEFAULT_CHAT_FRAME then
         announced = true
-        DEFAULT_CHAT_FRAME:AddMessage("|cff55ff99[HordesRU]|r v0.9 loaded (compact fonts / rewards / deck)")
+        DEFAULT_CHAT_FRAME:AddMessage("|cff55ff99[HordesRU]|r v1.0 loaded (Mage + Warlock + UI font)")
     end
 end
 runner:RegisterEvent("PLAYER_LOGIN")
