@@ -369,6 +369,8 @@ local function MatchDescription(name, original)
     return nil
 end
 
+HordesRU_AbilityDescription = MatchDescription
+
 local skillTitle
 local installedTip = false
 local installedOffers = false

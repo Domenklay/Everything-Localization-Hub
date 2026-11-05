@@ -1,4 +1,4 @@
--- HordesRU 1.18: runtime recovery and compact fully translated Darkmoon chest cards for server-refreshed talents and chest offers.
+-- HordesRU 1.19: integrated reward localization and compact card layout.
 -- Display only. No changes to game scripts, game state, or server packets.
 local KR = "Interface\\AddOns\\HordesOfAzeroth\\Fonts\\NotoSansKR-Regular.otf"
 local SC = "Interface\\AddOns\\HordesOfAzeroth\\Fonts\\NotoSansSC-Regular.otf"
@@ -16,8 +16,29 @@ local backup = {
  ["Earn talent points from Mastery levels. Right-click a talent to refund a point."]=
  "Получайте очки талантов за уровни мастерства. ПКМ по таланту возвращает очко."
 }
+-- Official bonk_passive entries, including passives rolled after a reroll.
+local rewardNames={
+ ["Blessing of Might"]="Благословение могущества", ["Berserking"]="Берсерк",
+ ["Aspect of the Cheetah"]="Дух гепарда", ["Power Word: Fortitude"]="Слово силы: Стойкость",
+ ["Spirit"]="Дух", ["Rested"]="Отдохнувший", ["Goblin Grabber"]="Гоблинский хвататель",
+ ["Arcane Brilliance"]="Чародейская гениальность", ["Devotion Aura"]="Аура благочестия",
+ ["Elixir of Agility"]="Эликсир ловкости", ["Elixir of the Mongoose"]="Эликсир мангуста",
+ ["Inner Fire"]="Внутренний огонь", ["Lucky Rabbit's Foot"]="Счастливая кроличья лапка",
+ ["Hand of Justice"]="Рука правосудия", ["Vampiric Embrace"]="Объятия вампира",
+ ["Toxicology"]="Токсикология", ["Pyromaniac"]="Пироман",
+ ["Serrated Blades"]="Зазубренные клинки",
+}
+local rewardEffects={
+ ["+8% Haste."]="+8% к скорости.",
+ ["+10% Area."]="+10% к области действия.",
+ ["Burns every enemy within 10 yards of you with holy light, dealing Holy damage every sec. Enemies that strike you take double."]=
+ "Поражает всех врагов в пределах 10 ярдов светом каждую секунду. Атакующие вас враги получают двойной урон.",
+}
+
 local function TR(s)
  if type(s) ~= "string" then return s end
+ if rewardNames[s] then return rewardNames[s] end
+ if rewardEffects[s] then return rewardEffects[s] end
  if type(HordesRU_FullDictionary)=="table" and HordesRU_FullDictionary[s] then return HordesRU_FullDictionary[s] end
  if type(HordesRU_FullTranslate)=="function" then
   local ok, value=pcall(HordesRU_FullTranslate,s)
@@ -127,9 +148,69 @@ local function fitOfferButton(button, caption)
  end
  local fs=type(button.GetFontString)=="function" and button:GetFontString()
  if fs and type(fs.SetFont)=="function" then pcall(fs.SetFont,fs,font(),10,"") end
+ -- Leave space for R/X binding prompt at the right edge of each 120px button.
+ if fs and type(fs.ClearAllPoints)=="function" then
+  fs:ClearAllPoints()
+  fs:SetWidth(92)
+  fs:SetPoint("LEFT",button,"LEFT",5,0)
+  if fs.SetJustifyH then fs:SetJustifyH("CENTER") end
+ end
  local hint=button.keyPrompt
  if hint and type(hint.SetFont)=="function" then pcall(hint.SetFont,hint,font(),10,"OUTLINE") end
 end
+
+-- Fit translated strings within the native 220-pixel cards BEFORE overflow growth.
+local function fitRussianCard(card, option, width, locked)
+ if not card or not card.name or not card.description then return end
+ width=tonumber(width) or (card.GetWidth and card:GetWidth()) or 220
+ if width<100 then width=220 end
+ local name=card.name:GetText() or ""
+ local bytes=string.len(name)
+ local size=15
+ if bytes>44 then size=12 elseif bytes>28 then size=13 end
+ card.name:SetWidth(width-34)
+ card.name:SetFont(font(),size,"")
+ if card.level then
+  card.level:SetWidth(width-24)
+  card.level:SetFont(font(),10,"")
+ end
+ if card.count then card.count:SetFont(font(),10,"") end
+ if locked and card.lock then
+  local label=card.lock:GetText() or ""
+  if label=="Lock" or label=="Заблокировать" then card.lock:SetText("Закрепить") end
+  if label=="Locked" or label=="Заблокировано" then card.lock:SetText("Закреплено") end
+  local labelFont=card.lock.GetFontString and card.lock:GetFontString()
+  if labelFont then labelFont:SetFont(font(),9,"") end
+ end
+ if type(option)~="table" or
+    (type(option.stats)=="table" and table.getn(option.stats)>0) then return end
+ local description=card.descriptionText or ""
+ local top=option.kind=="c" and 158 or 104
+ local nameH=card.name:GetHeight() or 18
+ local levelH=card.level and card.level:GetHeight() or 13
+ local damage=(type(option.damageAfter)=="string" and option.damageAfter~="") and 18 or 0
+ local cardHeight=card:GetHeight() or 300
+ local used=top+nameH+4+levelH+11+1+10
+ local room=math.max(12,cardHeight-used-(locked and 46 or 18)-damage)
+ local measure=card.measure
+ local needed=0
+ local bodySize=11
+ card.description:SetWidth(width-44)
+ if measure then
+  measure:SetWidth(width-44)
+  measure:SetText(description)
+  while bodySize>=9 do
+   measure:SetFont(font(),bodySize,"")
+   needed=measure:GetHeight() or 0
+   if needed<=room or bodySize==9 then break end
+   bodySize=bodySize-1
+  end
+ end
+ card.description:SetFont("P",font(),bodySize,"")
+ card.description:SetHeight(room)
+ card.overflow=math.max(0,needed-room)
+end
+
 local nHook,tHook,sHook,cHook=nil,nil,nil,nil
 local function hook()
  local talents=VanillaBonkTalents
@@ -156,24 +237,40 @@ local function hook()
   cHook=function(card,option,width,locked)
    if type(option)~="table" then return previous(card,option,width,locked) end
    local ruName,ruDesc=TR(option.name),TR(option.description)
+   if ruDesc==option.description and type(HordesRU_AbilityDescription)=="function" then
+    local ok, value=pcall(HordesRU_AbilityDescription,option.name,option.description)
+    if ok and type(value)=="string" and value~="" then ruDesc=value end
+   end
    local copy=option
-   if ruName~=option.name or ruDesc~=option.description then
+   if ruName~=option.name or ruDesc~=option.description or
+      (type(option.stats)=="table" and table.getn(option.stats)>0) then
     copy={}
     for k,v in pairs(option) do copy[k]=v end
     copy.name=ruName; copy.description=ruDesc
+    if type(option.stats)=="table" and table.getn(option.stats)>0 then
+     copy.stats={}
+     for i,stat in ipairs(option.stats) do
+      local row={}
+      for k,v in pairs(stat) do row[k]=v end
+      row.label=TR(row.label)
+      copy.stats[i]=row
+     end
+    end
    end
+   -- Initial name/rarity are already set by ShowOffer; translate before
+   -- the original FitCard measures title and description heights.
+   if card and card.name then card.name:SetText(ruName or option.name or "") end
+   if card and card.level then text(card.level); fixCardRarity(card,option) end
    local result=previous(card,copy,width,locked)
    if card then
-    if card.name and ruName~=option.name and card.name.SetText then card.name:SetText(ruName) end
-    text(card.name); text(card.level); text(card.count); text(card.lock)
+    if card.name then card.name:SetText(ruName or option.name or "") end
+    text(card.name); text(card.level); text(card.count)
     fixCardRarity(card,option)
-    if card.description and type(card.description.SetFont)=="function" then
-     pcall(card.description.SetFont,card.description,"P",font(),10,"")
-    end
+    fitRussianCard(card,copy,width,locked)
    end
    return result
   end
-  offer.FitCard=cHook
+    offer.FitCard=cHook
  end
 end
 local function refresh()
@@ -185,6 +282,17 @@ local function refresh()
  if offer and offer.IsShown and offer:IsShown() then
   text(offer.title); text(offer.subtitle); text(offer.hint); text(offer.reroll); text(offer.skip)
   scan(offer,0,{})
+  if type(offer.cards)=="table" then
+   for _,card in ipairs(offer.cards) do
+    if card.IsShown and card:IsShown() and card.lock then
+     local name=card.lock:GetText() or ""
+     if name=="Заблокировать" or name=="Lock" then card.lock:SetText("Закрепить") end
+     if name=="Заблокировано" or name=="Locked" then card.lock:SetText("Закреплено") end
+     local fs=card.lock.GetFontString and card.lock:GetFontString()
+     if fs then fs:SetFont(font(),9,"") end
+    end
+   end
+  end
   fitOfferButton(offer.reroll,"Переброс")
   fitOfferButton(offer.skip,"Пропуск")
  end
@@ -193,11 +301,11 @@ SLASH_HORDESRUVERIFY1="/hrucheck"
 SlashCmdList["HORDESRUVERIFY"]=function()
  local ok=type(HordesRU_FullDictionary)=="table" and type(HordesRU_FullMastery)=="table"
  if DEFAULT_CHAT_FRAME then DEFAULT_CHAT_FRAME:AddMessage(
-  "|cff55ff99[HordesRU]|r 1.18: main catalogue: "..(ok and "OK" or "MISSING")..
+  "|cff55ff99[HordesRU]|r 1.19: main catalogue: "..(ok and "OK" or "MISSING")..
   "; font: "..((HordesRU_Options and HordesRU_Options.font) or "kr")) end
  refresh()
 end
-local frame=CreateFrame("Frame","HordesRU118Runtime")
+local frame=CreateFrame("Frame","HordesRU119Runtime")
 local next=0
 frame:SetScript("OnUpdate",function()
  local now=GetTime()
