@@ -3412,6 +3412,12 @@ local function TranslateDisplay(text)
     -- they may contain server protocol identifiers, player names or WoW tags.
 end
 
+-- Expose the core dictionary to the final runtime guard. All changes are UI-only.
+HordesRU_TranslateDisplay = function(value)
+    if type(value) ~= "string" then return value end
+    return TranslateDisplay(value) or value
+end
+
 -- Missing original Hordes text is collected locally for precise follow-up translation.
 HordesRU_Untranslated = HordesRU_Untranslated or {}
 local unknownCount = 0
@@ -3718,7 +3724,7 @@ local announced = false
 local function Announce()
     if not announced and DEFAULT_CHAT_FRAME then
         announced = true
-        DEFAULT_CHAT_FRAME:AddMessage("|cff55ff99[HordesRU]|r v1.11: единая русификация загружена (шрифт KR)")
+        DEFAULT_CHAT_FRAME:AddMessage("|cff55ff99[HordesRU]|r v1.21: русификатор загружен (шрифт KR)")
     end
 end
 runner:RegisterEvent("PLAYER_LOGIN")

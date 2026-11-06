@@ -1,7 +1,7 @@
 ## Interface: 11200
-## Title: HordesRU - Русский перевод (v1.20 FULL)
-## Notes: Полная русификация игры; дополнительный GlueXML для выбора персонажа устанавливается по желанию.
-## Version: 1.20
+## Title: HordesRU - Русский перевод (v1.21 FULL)
+## Notes: Клиентский русификатор интерфейса Hordes of Azeroth; перевод продолжается.
+## Version: 1.21
 ## OptionalDeps: HordesOfAzeroth
 ## SavedVariables: HordesRU_Options HordesRU_Untranslated HordesRU_LiveMissing HordesRU_ExpansionMissing
 HordesRU.lua

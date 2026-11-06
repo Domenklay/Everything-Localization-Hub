@@ -1,4 +1,4 @@
--- HordesRU 1.19: integrated reward localization and compact card layout.
+-- HordesRU 1.21: resilient reward localization and compact card layout.
 -- Display only. No changes to game scripts, game state, or server packets.
 local KR = "Interface\\AddOns\\HordesOfAzeroth\\Fonts\\NotoSansKR-Regular.otf"
 local SC = "Interface\\AddOns\\HordesOfAzeroth\\Fonts\\NotoSansSC-Regular.otf"
@@ -39,6 +39,11 @@ local function TR(s)
  if type(s) ~= "string" then return s end
  if rewardNames[s] then return rewardNames[s] end
  if rewardEffects[s] then return rewardEffects[s] end
+ -- Rebuilt card wrappers must still see the complete core translation rules.
+ if type(HordesRU_TranslateDisplay)=="function" then
+  local ok, value=pcall(HordesRU_TranslateDisplay,s)
+  if ok and type(value)=="string" and value~=s then return value end
+ end
  if type(HordesRU_FullDictionary)=="table" and HordesRU_FullDictionary[s] then return HordesRU_FullDictionary[s] end
  if type(HordesRU_FullTranslate)=="function" then
   local ok, value=pcall(HordesRU_FullTranslate,s)
@@ -301,11 +306,11 @@ SLASH_HORDESRUVERIFY1="/hrucheck"
 SlashCmdList["HORDESRUVERIFY"]=function()
  local ok=type(HordesRU_FullDictionary)=="table" and type(HordesRU_FullMastery)=="table"
  if DEFAULT_CHAT_FRAME then DEFAULT_CHAT_FRAME:AddMessage(
-  "|cff55ff99[HordesRU]|r 1.19: main catalogue: "..(ok and "OK" or "MISSING")..
+  "|cff55ff99[HordesRU]|r 1.21: main catalogue: "..(ok and "OK" or "MISSING")..
   "; font: "..((HordesRU_Options and HordesRU_Options.font) or "kr")) end
  refresh()
 end
-local frame=CreateFrame("Frame","HordesRU119Runtime")
+local frame=CreateFrame("Frame","HordesRU121Runtime")
 local next=0
 frame:SetScript("OnUpdate",function()
  local now=GetTime()
