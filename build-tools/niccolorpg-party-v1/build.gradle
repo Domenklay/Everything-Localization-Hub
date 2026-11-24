@@ -1,0 +1,25 @@
+plugins {
+  id 'java'
+  id 'net.neoforged.moddev' version '2.0.148'
+}
+group = 'ru.e2craft'
+version = '1.0'
+base { archivesName = 'niccolorpg-party-classes' }
+java.toolchain.languageVersion = JavaLanguageVersion.of(21)
+neoForge {
+  version = '21.1.266'
+  mods { 'niccolorpg_party_compile' { sourceSet(sourceSets.main) } }
+}
+tasks.register('checkPartyClass') {
+  dependsOn tasks.named('jar')
+  doLast {
+    def jarFile = tasks.named('jar').get().archiveFile.get().asFile
+    new java.util.zip.ZipFile(jarFile).withCloseable { zip ->
+      def name = 'com/niccolo/rpg/party/PartySystem.class'
+      if (zip.getEntry(name) == null) throw new GradleException('Missing party manager')
+      def data = new String(zip.getInputStream(zip.getEntry(name)).bytes, 'ISO-8859-1')
+      if (!data.contains('tryHandleKill') || !data.contains('onRegisterCommands')) throw new GradleException('Missing Party XP or commands')
+    }
+  }
+}
+tasks.named('check') { dependsOn tasks.named('checkPartyClass') }
