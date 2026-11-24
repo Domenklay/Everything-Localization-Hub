@@ -1,0 +1,28 @@
+modLoader="javafml"
+loaderVersion="[4,)"
+license="MIT"
+[[mods]]
+modId="e2craft_pixelmon_vanilla"
+version="1.0.2"
+displayName="E2Craft: Vanilla Mobs alongside Pixelmon"
+description='''Keeps vanilla mobs from being replaced by Pixelmon, without changing normal Pixelmon spawning.'''
+[[mixins]]
+config="e2craft_pixelmon_vanilla.mixins.json"
+[[dependencies.e2craft_pixelmon_vanilla]]
+modId="minecraft"
+type="required"
+versionRange="[1.21.1]"
+ordering="NONE"
+side="BOTH"
+[[dependencies.e2craft_pixelmon_vanilla]]
+modId="neoforge"
+type="required"
+versionRange="[21.1.248,)"
+ordering="NONE"
+side="BOTH"
+[[dependencies.e2craft_pixelmon_vanilla]]
+modId="pixelmon"
+type="required"
+versionRange="[9.4.2,9.5)"
+ordering="AFTER"
+side="BOTH"

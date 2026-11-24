@@ -1,0 +1,28 @@
+plugins {
+    id 'java'
+    id 'net.neoforged.moddev' version '2.0.148'
+}
+group = 'ru.e2craft'
+version = '1.0.2'
+base { archivesName = 'e2craft-pixelmon-vanilla-mobs' }
+java.toolchain.languageVersion = JavaLanguageVersion.of(21)
+neoForge {
+    version = '21.1.266'
+    mods { 'e2craft_pixelmon_vanilla' { sourceSet(sourceSets.main) } }
+}
+tasks.named('jar', Jar) { manifest { attributes('Implementation-Title':'E2Craft Pixelmon Vanilla Mobs','Implementation-Version': project.version) } }
+tasks.register('verifyMixinMetadata') {
+    dependsOn tasks.named('jar')
+    doLast {
+        def j = tasks.named('jar').get().archiveFile.get().asFile
+        new java.util.zip.ZipFile(j).withCloseable { zip ->
+            def entry = zip.getEntry('ru/e2craft/pixelmonvanilla/mixin/PixelmonReplacementMixin.class')
+            if (entry == null) throw new GradleException('Missing Mixin class')
+            def b = new String(zip.getInputStream(entry).bytes, 'ISO-8859-1')
+            if (!b.contains('Lorg/spongepowered/asm/mixin/Mixin;') || !b.contains('Lorg/spongepowered/asm/mixin/injection/Inject;')) throw new GradleException('Missing real Mixin annotations')
+            if (b.contains('BuiltInRegistries$Registry')) throw new GradleException('Fake API stub type detected')
+            if (zip.getEntry('e2craft_pixelmon_vanilla.mixins.json') == null) throw new GradleException('Missing Mixin config')
+        }
+    }
+}
+tasks.named('check') { dependsOn tasks.named('verifyMixinMetadata') }
