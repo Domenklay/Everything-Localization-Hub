@@ -1,0 +1,43 @@
+name: Diagnose Pixelmon 9.4.2 replacement
+on:
+  push:
+    branches: ["build/e2craft-pixelmon-vanillamobs-v102"]
+  workflow_dispatch:
+jobs:
+  inspect-pixelmon:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - name: Fetch matching Pixelmon jar
+        run: |
+          python3 - <<'PY'
+          import json,urllib.request
+          req=urllib.request.Request('https://api.modrinth.com/v2/project/pixelmon/version',headers={'User-Agent':'E2Craft-Diagnostics/1.0'})
+          with urllib.request.urlopen(req,timeout=60) as r: versions=json.load(r)
+          matches=[v for v in versions if v.get('version_number')=='9.4.2']
+          print('Matching versions:',[(v.get('id'),v.get('version_number'),v.get('loaders')) for v in matches])
+          if not matches: raise RuntimeError('Pixelmon 9.4.2 not found')
+          files=[f for v in matches for f in v['files'] if f.get('filename','').endswith('.jar')]
+          print('matching files:', [(f['filename'],f['size']) for f in files])
+          if not files: raise RuntimeError('Missing 9.4.2 jar')
+          req=urllib.request.Request(files[0]['url'],headers={'User-Agent':'E2Craft-Diagnostics/1.0'})
+          with urllib.request.urlopen(req,timeout=120) as r,open('pixelmon.jar','wb') as out:
+              while True:
+                  b=r.read(1024*1024)
+                  if not b:break
+                  out.write(b)
+          print('downloaded')
+          PY
+      - name: Inspect replacement class bytecode
+        run: |
+          echo "== CLASS FILES =="
+          jar tf pixelmon.jar | grep -E 'MobSpawnReplacement|SpawnDetectionLogic|SimpleDetectionLogic|NoReplacementLogic' | head -40
+          echo "== METHOD SIGNATURES =="
+          javap -p -cp pixelmon.jar com.pixelmonmod.pixelmon.listener.MobSpawnReplacement || true
+          echo "== BYTECODE =="
+          javap -c -p -cp pixelmon.jar com.pixelmonmod.pixelmon.listener.MobSpawnReplacement | head -300 || true
+          echo "== SimpleDetectionLogic =="
+          javap -c -p -cp pixelmon.jar com.pixelmonmod.pixelmon.api.replacement.logic.SimpleDetectionLogic | head -140 || true
